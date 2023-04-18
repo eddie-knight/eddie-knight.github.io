@@ -1,4 +1,4 @@
-BaseUrl= "https://syui.cf/hugo-theme-air/"
+baseURL= "https://eddieknight.dev/"
 LanguageCode= "en-US"
 Title= "Eddie Knight"
 paginate = 5

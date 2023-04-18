@@ -35,7 +35,17 @@
     <a class="scroll-down icon-arrow-left" href="#content"><span class="hidden">Scroll Down</span></a>
 </header>
 
+<div class="panel panel-default inner">
+    <div class="panel-heading">
+      <h2 class="panel-title">Hello there</h2>
+    </div>
+    <div class="panel-body">
+      Panel content
+    </div>
+</div>
+
 <main id="content" class="content" role="main">
+    <hr>
     {{ $pages := .Pages }}
     {{ if .IsHome }}
     {{ $pages = .Site.RegularPages }}
