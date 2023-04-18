@@ -1,0 +1,30 @@
+BaseUrl= "https://syui.cf/hugo-theme-air/"
+LanguageCode= "en-US"
+Title= "Eddie Knight"
+paginate = 5
+DisqusShortname = ""
+Copyright = "Reserve ALL the rights! 2023"
+canonifyurls = true
+
+[author]
+  name = "Eddie Knight"
+
+[permalinks]
+    post = "/post/:year/:month/:day/:slug"
+
+[params]
+  description = "Author, Speaker, Engineer"
+  cover = "images/user.jpg"
+  author = "Eddie Knight"
+  authorlocation = "Deep in the Heart of Texas"
+  authorwebsite = "https://eddieknight.dev"
+  bio= "Bio"
+  # logo = "images/user.png"
+  googleAnalyticsUserID = ""
+  # Optional RSS-Link, if not provided it defaults to the standard index.xml
+  # RSSLink = ""
+  githubName = "eddie-knight"
+  twitterName = "the_eddieknight"
+  # set true if you are not proud of using Hugo (true will hide the footer note "Proudly published with HUGO.....")
+  hideHUGOSupport = true
+  mainSections = ["post"]
