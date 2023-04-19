@@ -8,7 +8,7 @@ image = ""
 menu = ""
 share = false
 slug = "Python OWASP"
-title= "The Pythonista’s Guide to the OWASP Top 10"
+title= "Pythonista’s Guide to the OWASP Top 10"
 jumpURL = "https://devm.io/python/python-owasp-app-security"
 +++
 
