@@ -1,14 +1,14 @@
 +++
-author = "CNCF"
+author = "OpenSSF"
 tags = ["event", "external"]
 comments = false
-date = "2023-04-18"
+date = "2023-10-10"
 draft = false
 image = ""
 menu = ""
 share = false
 slug = "CNCF Slam"
-title= "Host: CNCF Security Slam (2023 Announcement)"
+title= "Host: CNCF Security Slam"
 jumpURL = "https://community.cncf.io/cloud-native-security-slam/"
 +++
 
