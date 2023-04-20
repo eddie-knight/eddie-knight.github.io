@@ -1,5 +1,5 @@
 +++
-author = "OpenSSF"
+author = "CNCF"
 tags = ["event", "external"]
 comments = false
 date = "2023-04-18"
