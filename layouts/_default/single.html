@@ -39,7 +39,7 @@
         <h1 class="post-title">{{.Title}}</h1>
         <section class="post-meta">
         {{ if eq .Section "post"}}
-	<time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">
+	        <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">
             {{ .Date.Format "2006-01-02" }}
           </time>
         {{end}}
@@ -50,6 +50,9 @@
     </header>
 
     <section class="post-content">
+      {{ if .Params.image }}
+      <p><img src="{{ .Site.BaseURL}}{{ .Params.image }}" alt="{{ .Params.image }}"></p>
+      {{ end }}
       {{ .Content }}
     </section>
 

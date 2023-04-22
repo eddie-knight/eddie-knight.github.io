@@ -9,20 +9,40 @@
             {{ end }}
         </h2>
     </header>
+    {{ if and .Params.image .Params.verticalImage }}
+    <section class="post-excerpt row">
+        <div class="column">
+            <img class="li-image" src="{{ .Site.BaseURL }}{{.Params.image}}" alt="{{.Params.image}}" nopin="nopin" />
+        </div>
+        <div class="column">
+            <section class="post-excerpt">
+                <p>
+                    <section class="post-content">
+                    {{ .Content }}
+                    </section>
+                </p>
+            </section>
+        </div>
+    </section>
+    {{else if .Params.image}}
+    <section class="post-excerpt">
+        <img class="li-image" src="{{ .Site.BaseURL }}{{.Params.image}}" alt="{{.Params.image}}" nopin="nopin" />
+        <p>
+            <section class="post-content">
+            {{ .Content }}
+            </section>
+        </p>
+    </section>
+    {{else }}
     <section class="post-excerpt">
       <p>
           <section class="post-content">
             {{ .Content }}
           </section>
       </p>
-      <!--
-        {{ .Summary }} <a class="read-more" href="{{.RelPermalink}}">&raquo;</a></p>
-      -->
     </section>
+    {{end}}
     <footer class="post-meta">
-        {{if .Site.Params.logo }}
-            <img class="author-thumb" src="{{ .Site.BaseURL }}{{.Site.Params.logo}}" alt="Author image" nopin="nopin" />
-        {{end}}
         {{if and (ne .Params.author .Site.Params.author) .Params.author}}
         {{$author := index .Site.Data.authors .Params.author }}
             {{$author.name}}
