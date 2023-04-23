@@ -37,6 +37,14 @@
 <!-- <div class="row content">
     {{ partial "bio.html" . }}
 </div> -->
+<div class="row">
+    <a  href="https://github.com/{{ .Site.Params.githubName }}" style="text-decoration: none;">
+        <span class="icon-github" style="color: #4a4a4a;font-size:2em"></span>
+    </a>
+    <a class="bloglogo" href="https://twitter.com/{{ .Site.Params.twitterName }}" style="text-decoration: none;">
+        <span class="icon-twitter" style="color:#4a4a4a;font-size:2em"></span>
+    </a>
+</div>
 <main id="content" class="content" role="main">
     {{ $pages := .Pages }}
     {{ if .IsHome }}
