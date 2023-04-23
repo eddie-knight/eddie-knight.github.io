@@ -3,7 +3,6 @@ img {
 }
 
 #content {
-    padding: 100px;
     display: flex;
     flex-flow: row wrap;
 }
@@ -13,6 +12,10 @@ img {
 }
 
 @media only screen and (min-width: 481px) {
+    #content {
+        padding: 100px;
+    }
+
     .row {
         display: flex;
         flex-direction: row;
