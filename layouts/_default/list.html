@@ -42,10 +42,11 @@
 
 	{{ range $index, $page := $pages }}
 	   {{ .Render "li" }}
-	{{ end }}
-
+	{{ end }}  
 </main>
-
-
-
+<div class="content row">
+  <p>
+    <a class="btn-bootstrap-2" href="{{$baseurl}}">Return Home</a>
+  </p>
+</div>
 {{ partial "footer.html" . }}
