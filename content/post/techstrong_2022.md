@@ -1,10 +1,10 @@
 +++
-author = "Techstrong TV"
+author = "TechstrongTV"
 tags = ["video", "external"]
 comments = false
 date = "2022-09-22"
 draft = false
-image = ""
+image = "images/techstrong_2022.png"
 menu = ""
 share = false
 slug = "Techstrong TV"

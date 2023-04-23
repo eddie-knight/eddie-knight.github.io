@@ -52,6 +52,8 @@
     <section class="post-content">
       {{ if .Params.image }}
       <p><img src="{{ .Site.BaseURL}}{{ .Params.image }}" alt="{{ .Params.image }}"></p>
+      {{ else if .Params.podcastURL }}
+      <iframe style="border-radius:12px" src="{{.Params.podcastURL}}" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       {{ end }}
       {{ .Content }}
     </section>

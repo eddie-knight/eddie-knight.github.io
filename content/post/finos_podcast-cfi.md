@@ -11,6 +11,7 @@ share = false
 slug = "FINOS CFI Interview"
 title= "Compliant Financial Infrastructure & Eddie Knight"
 jumpURL = "https://resources.finos.org/content/compliant-financial-infrastructure-eddie-knight-managing-consultant-synechron/"
+spotifyID = "0PVzsVlqk41DZizqJgAoHo"
 +++
 
 Interview with James McLeod about the Compliant Financial Infrastructure project and Eddie Knight's career to date.
