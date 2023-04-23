@@ -16,8 +16,3 @@ If you're like many developers or IT professionals, you may have mixed feelings 
 
 
 But what if I told you that security checklists don't have to be that way? What if I showed you how to approach these lists in a whole new light, and make easy work of the items on them? That's exactly what this article is all about.
-
-
-[Read More](https://devm.io/python/python-owasp-app-security)
-
-

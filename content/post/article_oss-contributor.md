@@ -15,5 +15,3 @@ jumpURL = "https://blog.sonatype.com/becoming-a-new-contributor-to-open-source-s
 Becoming a new contributor to open source software is one of the biggest obstacles I watch people hit regularly.
 
 I’ve seen a hundred false starts from recent grads and even people who have been working in tech for years. The obstacle is consistent, but the solution isn’t always simple.
-
-[Read More](https://blog.sonatype.com/becoming-a-new-contributor-to-open-source-software)
