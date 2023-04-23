@@ -2,7 +2,7 @@
 author = "Eddie Knight"
 tags = ["article"]
 comments = false
-date = "2022-10-20"
+date = "2022-11-01"
 draft = false
 image = "images/blog_openssl-vulns.webp"
 menu = ""
