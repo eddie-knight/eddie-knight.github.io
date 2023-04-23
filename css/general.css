@@ -2,6 +2,12 @@ img {
     max-height: 100vh;
 }
 
+#content {
+    padding: 100px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
 .li-image {
     max-width: 100%;
 }
