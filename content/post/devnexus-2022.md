@@ -4,12 +4,13 @@ tags = ["presentation"]
 comments = false
 date = "2023-04-06"
 draft = false
-image = ""
+image = "images/devnexus.jpg"
+verticalImage = true
 menu = ""
 share = false
 slug = "Devnexus 2023"
-title= "Conference Speaker: Devnexus 2023"
+title= "Keepin it SAST-y"
 jumpURL = "https://devnexus.org/presentations/keeping-it-sast-y"
 +++
 
-Atlanta, GA hosted 2023's largest Java Conference in the United States.
+Cconference speaker and organizer for the Open Source Security Foundation info booth at 2023's largest Java Conference in North America.

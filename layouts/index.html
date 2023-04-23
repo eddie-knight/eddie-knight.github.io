@@ -40,7 +40,6 @@
     {{ if .IsHome }}
     {{ $pages = .Site.RegularPages }}
     {{ end }}
-    <!--{{ $paginator := .Paginate (where .Data.Pages "Section" "post") }}-->
     {{ range $index, $page := $pages }}
         {{ .Render "li" }}
     {{ end }}

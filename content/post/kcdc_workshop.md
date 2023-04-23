@@ -1,5 +1,5 @@
 +++
-author = "KCDC"
+author = "Eddie Knight"
 tags = ["event"]
 comments = false
 date = "2023-04-16"
