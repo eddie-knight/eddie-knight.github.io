@@ -40,18 +40,10 @@
     {{ if .IsHome }}
     {{ $pages = .Site.RegularPages }}
     {{ end }}
-    {{ $paginator := .Paginate $pages }}
     <!--{{ $paginator := .Paginate (where .Data.Pages "Section" "post") }}-->
-
-    <div class="extra-pagination inner">
-        {{ partial "pagination.html" $paginator }}
-    </div>
-
-    {{ range $index, $page := $paginator.Pages }}
+    {{ range $index, $page := $pages }}
         {{ .Render "li" }}
     {{ end }}
-
-    {{ partial "pagination.html" $paginator }}
 
 </main>
 
