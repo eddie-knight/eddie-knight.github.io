@@ -1,6 +1,6 @@
 +++
 author = "Eddie Knight"
-tags = ["book"]
+<!-- tags = ["book"] removing until more book entries are present -->
 comments = false
 date = "2023-04-20"
 draft = false
