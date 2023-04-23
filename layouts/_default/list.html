@@ -44,9 +44,5 @@
 	   {{ .Render "li" }}
 	{{ end }}  
 </main>
-<div class="content row">
-  <p>
-    <a class="btn-bootstrap-2" href="{{$baseurl}}">Return Home</a>
-  </p>
-</div>
+{{ partial "return.html" . }}
 {{ partial "footer.html" . }}

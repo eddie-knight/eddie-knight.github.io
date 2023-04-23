@@ -68,7 +68,8 @@
         <a class="img" href="{{$baseurl}}" style="background-image: url({{$baseurl}}{{.Site.Params.logo}})"><span class="hidden">{{ .Site.Params.author }}</span></a>
     </figure>
     {{end}}
-    <a class="btn-bootstrap-2" href="{{$baseurl}}">Return Home</a>
+
+    {{ partial "return.html" . }}
 
     {{ if ne .Params.share false}}
     <section class="share">
