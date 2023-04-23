@@ -11,6 +11,10 @@ img {
     max-width: 100%;
 }
 
+.bio {
+    padding: 15px;
+}
+
 @media only screen and (min-width: 481px) {
     #content {
         padding: 100px;
@@ -21,6 +25,7 @@ img {
         flex-direction: row;
         flex-wrap: wrap;
         width: 100%;
+        justify-content: center;
     }
       
     .column {
@@ -29,5 +34,9 @@ img {
         flex-basis: 100%;
         flex: 1;
         padding: 15px;
+    }
+
+    .bio {
+        max-width: 30%;
     }
 }
