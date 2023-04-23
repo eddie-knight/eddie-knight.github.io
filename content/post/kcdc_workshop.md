@@ -1,6 +1,6 @@
 +++
 author = "KCDC"
-tags = ["event", "external"]
+tags = ["event"]
 comments = false
 date = "2023-04-16"
 draft = false

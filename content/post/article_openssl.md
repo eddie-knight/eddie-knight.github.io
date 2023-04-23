@@ -1,6 +1,6 @@
 +++
 author = "Eddie Knight"
-tags = ["article", "external"]
+tags = ["article"]
 comments = false
 date = "2022-10-20"
 draft = false

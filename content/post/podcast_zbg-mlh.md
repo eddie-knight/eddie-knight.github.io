@@ -1,7 +1,7 @@
 
 +++
 author = "ZBG"
-tags = ["podcast", "external"]
+tags = ["podcast"]
 comments = false
 date = "2022-12-12"
 draft = false

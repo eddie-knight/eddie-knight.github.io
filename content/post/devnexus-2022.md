@@ -1,6 +1,6 @@
 +++
 author = "Eddie Knight"
-tags = ["presentation", "external"]
+tags = ["presentation"]
 comments = false
 date = "2023-04-06"
 draft = false

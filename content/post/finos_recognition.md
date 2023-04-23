@@ -1,6 +1,6 @@
 +++
 author = "FINOS"
-tags = ["recognition", "external"]
+tags = ["recognition"]
 comments = false
 date = "2021-01-06"
 draft = false

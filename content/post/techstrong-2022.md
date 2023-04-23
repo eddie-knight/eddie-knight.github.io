@@ -1,6 +1,6 @@
 +++
 author = "TechstrongTV"
-tags = ["video", "external"]
+tags = ["video"]
 comments = false
 date = "2022-09-22"
 draft = false

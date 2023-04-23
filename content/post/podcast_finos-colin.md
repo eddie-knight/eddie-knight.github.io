@@ -1,7 +1,7 @@
 
 +++
 author = "FINOS"
-tags = ["podcast", "external"]
+tags = ["podcast"]
 comments = false
 date = "2023-02-08"
 draft = false

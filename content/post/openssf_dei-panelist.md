@@ -1,6 +1,6 @@
 +++
 author = "OpenSSF"
-tags = ["event", "external"]
+tags = ["event"]
 comments = false
 date = "2023-04-17"
 draft = false

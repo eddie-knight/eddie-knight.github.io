@@ -1,6 +1,6 @@
 +++
 author = "FINOS"
-tags = ["presentation", "external"]
+tags = ["presentation"]
 comments = false
 date = "2021-01-06"
 draft = false
