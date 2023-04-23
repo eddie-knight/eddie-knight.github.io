@@ -13,4 +13,4 @@ title= "So You're Creating a Private IaC Registry?"
 jumpURL = "https://twitter.com/FINOSFoundation/status/1504222388413779973"
 +++
 
-Presentation for the Wall Street members of [FINOS](finos.org) on the topic of how (and why) a financial services institution might create a private curated registry of infrastructure as code resources.
+Presentation for the Wall Street members of [FINOS](https://finos.org) on the topic of how (and why) a financial services institution might create a private curated registry of infrastructure as code resources.
