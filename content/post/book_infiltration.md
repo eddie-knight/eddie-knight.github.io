@@ -1,7 +1,7 @@
 +++
 author = "Eddie Knight"
 comments = false
-date = "2023-04-20"
+date = "2023-04-24"
 draft = false
 image = "images/infiltration_mockup.png"
 verticalImage = true
