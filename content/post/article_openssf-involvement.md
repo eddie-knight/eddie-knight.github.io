@@ -5,6 +5,7 @@ comments = false
 date = "2023-05-04"
 draft = false
 image = "images/openssf_blog-involvement.png"
+verticalImage = true
 menu = ""
 share = false
 slug = "OpenSSF Involvement"
