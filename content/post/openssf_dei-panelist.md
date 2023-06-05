@@ -5,6 +5,7 @@ comments = false
 date = "2023-05-10"
 draft = false
 image = "images/openssf_speaker-badge-2023.png"
+vertical = true
 menu = ""
 share = false
 slug = "OpenSSF Panelist"
