@@ -1,5 +1,4 @@
-{{ if .Params.jumpURL }}
 <p>
-    <a href="{{ .Params.jumpURL }}" target="_blank" >Read More</a>
+    <a href="{{ if .Params.jumpURL }}{{ .Params.jumpURL }}{{ else }}{{ .RelPermalink }}{{ end }}" 
+      target="_blank" >Read More</a>
 </p>
-{{end}}

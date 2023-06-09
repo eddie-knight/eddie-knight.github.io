@@ -12,13 +12,13 @@
     {{ if and .Params.image .Params.verticalImage }}
     <section class="post-excerpt row">
         <div class="column">
-            <img class="li-image" src="{{ .Site.BaseURL }}{{.Params.image}}" alt="{{.Params.image}}" nopin="nopin" />
+            <img class="li-image" src="{{ .Site.BaseURL }}{{.Params.image}}" alt="{{.Params.image}}" nopin="nopin"/>
         </div>
         <div class="column">
             <section class="post-excerpt">
                 <p>
                     <section class="post-content">
-                    {{ .Content }}
+                    {{ truncate 300 .Content }}
                     {{ partial "more.html" . }}
                     </section>
                 </p>
@@ -27,10 +27,10 @@
     </section>
     {{else if .Params.image}}
     <section class="post-excerpt">
-        <img class="li-image" src="{{ .Site.BaseURL }}{{.Params.image}}" alt="{{.Params.image}}" nopin="nopin" />
+        <img class="li-image" src="{{ .Site.BaseURL }}{{.Params.image}}" alt="{{.Params.image}}" nopin="nopin" style="max-height: 33vh"/>
         <p>
             <section class="post-content">
-            {{ .Content }}
+            {{ truncate 300 .Content }}
             {{ partial "more.html" . }}
             </section>
         </p>
