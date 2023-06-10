@@ -4,13 +4,24 @@ tags = ["book"]
 comments = false
 date = "2023-06-09"
 draft = false
-image = "images/nix_sticker.png"
+image = "images/nix_cover.png"
+verticalImage = true
 menu = ""
 share = false
 title = "Nix (Releasing July 2023)"
 +++
 
-Sign up to be part of the advanced reader campaign to get an early digital copy. Active participants will get a free sticker pack!
+Sign up to be part of the advanced reader campaign to get an early digital copy. 
+
+Active participants will get a free sticker pack!
+
+> Following the global wave of innovation on artificial intelligence, machine learning tools, and every possible variation of GPT driven chatbots... Ishmael has been propelled to Chief Technical Officer of Paragon Logic, the most ambitious technical organization of the 21st century.
+> 
+> But no one can anticipate the trouble that will come from the aspirations and momentum the company has gained on the international stage.
+>
+> When cyber attacks and infiltrations start hitting Paragon Logic from every side, Ishmael must find a way to protect his company, himself, and his family from the repercussions of both corporate greed and political competition.
+
+### Sign up to the Advanced Reader mailing list!
 
 <!-- Begin Mailchimp Signup Form -->
 <link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
