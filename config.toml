@@ -12,7 +12,7 @@ canonifyurls = true
 [services]
 [services.googleAnalytics]
 # Comment out the next line to disable GA tracking. Also disables the feature described in [params.ui.feedback].
-id = "G-072NYGE3TF"
+id = "G-FV8MKRQ6HS"
 
 [markup.goldmark.renderer]
   unsafe = true
@@ -28,7 +28,7 @@ id = "G-072NYGE3TF"
   authorwebsite = "https://eddieknight.dev"
   bio= "Bio"
   # logo = "images/user.png"
-  googleAnalyticsUserID = ""
+  # googleAnalyticsUserID = ""
   # Optional RSS-Link, if not provided it defaults to the standard index.xml
   # RSSLink = ""
   githubName = "eddie-knight"
