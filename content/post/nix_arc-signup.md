@@ -11,17 +11,22 @@ share = false
 title = "Nix (Releasing July 2023)"
 +++
 
-Sign up to be part of the advanced reader campaign to get an early digital copy. 
-
-Active participants will get a free sticker pack!
-
 > Following the global wave of innovation on artificial intelligence, machine learning tools, and every possible variation of GPT driven chatbots... Ishmael has been propelled to Chief Technical Officer of Paragon Logic, the most ambitious technical organization of the 21st century.
 > 
 > But no one can anticipate the trouble that will come from the aspirations and momentum the company has gained on the international stage.
 >
 > When cyber attacks and infiltrations start hitting Paragon Logic from every side, Ishmael must find a way to protect his company, himself, and his family from the repercussions of both corporate greed and political competition.
 
-### Sign up to the Advanced Reader mailing list!
+Sign up to be part of the advanced reader campaign to get an early digital copy. 
+
+### New Bonus!
+
+Participants who sign up here before June 30th will get a free sticker pack _and_ an early access copy of the audiobook before it is available on Audible in mid-July!
+
+
+### Sign up to the Advanced Reader mailing list
+
+This form closes on June 30th!
 
 <!-- Begin Mailchimp Signup Form -->
 <link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">

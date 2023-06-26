@@ -51,7 +51,7 @@
 
     <section class="post-content column">
       {{ if .Params.image }}
-      <img src="{{ .Site.BaseURL}}{{ .Params.image }}" alt="{{ .Params.image }}">
+      <div style="max-width: 40vh;"><img src="{{ .Site.BaseURL}}{{ .Params.image }}" alt="{{ .Params.image }}"></div>
       {{ else if .Params.podcastURL }}
       <iframe style="border-radius:12px" src="{{.Params.podcastURL}}" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       {{ end }}
