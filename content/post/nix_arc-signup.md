@@ -21,8 +21,7 @@ Sign up to be part of the advanced reader campaign to get an early digital copy.
 
 ### New Bonus!
 
-Participants who sign up here before June 30th will get a free sticker pack _and_ an early access copy of the audiobook before it is available on Audible in mid-July!
-
+Active participants who sign up here before June 30th will get a free sticker pack _and_ an early access copy of the audiobook before it is available on Audible in mid-July!
 
 ### Sign up to the Advanced Reader mailing list
 
