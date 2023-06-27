@@ -2,7 +2,7 @@
 author = "Eddie Knight"
 tags = ["book"]
 comments = false
-date = "2023-06-09"
+date = "2023-06-27"
 draft = false
 image = "images/nix_cover.png"
 verticalImage = true
