@@ -13,4 +13,4 @@ title= "Keepin it SAST-y"
 jumpURL = "https://devnexus.org/presentations/keeping-it-sast-y"
 +++
 
-Cconference speaker and organizer for the Open Source Security Foundation info booth at 2023's largest Java Conference in North America.
+Conference speaker & organizer for the Open Source Security Foundation info booth at 2023's largest Java Conference in North America.
