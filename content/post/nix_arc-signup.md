@@ -8,7 +8,7 @@ image = "images/nix_cover.png"
 verticalImage = true
 menu = ""
 share = false
-title = "Nix (Rise of the Mechanocene, #1)"
+title = "Nix (Rise of the Mechanocene)"
 +++
 
 ---
