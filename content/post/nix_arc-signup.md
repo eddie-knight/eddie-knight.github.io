@@ -2,30 +2,22 @@
 author = "Eddie Knight"
 tags = ["book"]
 comments = false
-date = "2023-06-27"
+date = "2023-06-30"
 draft = false
 image = "images/nix_cover.png"
 verticalImage = true
 menu = ""
 share = false
-title = "Nix (Releasing July 2023)"
+title = "Nix (Rise of the Mechanocene, #1)"
 +++
 
-> Following the global wave of innovation on artificial intelligence, machine learning tools, and every possible variation of GPT driven chatbots... Ishmael has been propelled to Chief Technical Officer of Paragon Logic, the most ambitious technical organization of the 21st century.
-> 
-> But no one can anticipate the trouble that will come from the aspirations and momentum the company has gained on the international stage.
->
-> When cyber attacks and infiltrations start hitting Paragon Logic from every side, Ishmael must find a way to protect his company, himself, and his family from the repercussions of both corporate greed and political competition.
+---
 
-Sign up to be part of the advanced reader campaign to get an early digital copy. 
+Are you interested in learning more about how you can do the types of work Ishmael and his colleagues did at Paragon Logic?
 
-### New Bonus!
+I am currently working on building educational content to help curious folks dive deeper into real-world technology in a way that can help you jumpstart or advance your tech career!
 
-Active participants who sign up here before June 30th will get a free sticker pack _and_ an early access copy of the audiobook before it is available on Audible in mid-July!
-
-### Sign up to the Advanced Reader mailing list
-
-This form closes on June 30th!
+If you'd like to be alerted as this content is developed, or just want to stay up to date with the series, sign up to my mailing list below!
 
 <!-- Begin Mailchimp Signup Form -->
 <link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
@@ -38,15 +30,13 @@ This form closes on June 30th!
     <form action="https://dev.us8.list-manage.com/subscribe/post?u=9524d77266c4254d16b556ec7&amp;id=f143f0117b&amp;f_id=00b563e0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
         <div id="mc_embed_signup_scroll">
         <h2>Subscribe</h2>
-        <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
 <div class="mc-field-group">
 	<label for="mce-FNAME">First Name </label>
 	<input type="text" value="" name="FNAME" class="" id="mce-FNAME">
 	<span id="mce-FNAME-HELPERTEXT" class="helper_text"></span>
 </div>
 <div class="mc-field-group">
-	<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
-</label>
+	<label for="mce-EMAIL">Email Address (required)</label>
 	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
 	<span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
 </div>
