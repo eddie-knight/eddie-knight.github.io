@@ -21,8 +21,8 @@ When cyber attacks and infiltrations start hitting Paragon Logic from every side
 
 |||
 |---|---|
-|Like to read?|[Get the Book]("https://www.amazon.com/dp/B0CB4STG35")|
-|Like to listen?|[Get the Audiobook]("https://www.audible.com/pd/B0CC75QH7T/?source_code=AUDFPWS0223189MWT-BK-ACX0-359529&ref=acx_bty_BK_ACX0_359529_rh_us")|
+|Like to read?|<a href="https://www.amazon.com/dp/B0CB4STG35">Get the Book</a>|
+|Like to listen?|<a href="https://www.audible.com/pd/B0CC75QH7T/?source_code=AUDFPWS0223189MWT-BK-ACX0-359529&ref=acx_bty_BK_ACX0_359529_rh_us">Get the Audiobook</a>|
 
 ---
 
