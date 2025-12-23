@@ -27,7 +27,7 @@ export const Header: React.FC = () => {
             color: "var(--gf-color-accent)"
           }}
         >
-          Your Name
+          Eddie Knight
         </div>
         <nav
           style={{
@@ -36,6 +36,24 @@ export const Header: React.FC = () => {
             alignItems: "center"
           }}
         >
+          <a
+            href="#involvements"
+            style={{
+              color: "var(--gf-color-text)",
+              textDecoration: "none",
+              padding: "0.5rem 1rem",
+              borderRadius: "var(--gf-radius-lg)",
+              transition: "background-color 0.2s"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "var(--gf-color-accent-soft)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "transparent";
+            }}
+          >
+            Involvements
+          </a>
           <a
             href="#about"
             style={{
@@ -53,24 +71,6 @@ export const Header: React.FC = () => {
             }}
           >
             About
-          </a>
-          <a
-            href="#projects"
-            style={{
-              color: "var(--gf-color-text)",
-              textDecoration: "none",
-              padding: "0.5rem 1rem",
-              borderRadius: "var(--gf-radius-lg)",
-              transition: "background-color 0.2s"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "var(--gf-color-accent-soft)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "transparent";
-            }}
-          >
-            Projects
           </a>
           <a
             href="#contact"

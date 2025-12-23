@@ -41,3 +41,29 @@ body {
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
+/* Horizontal scrollbar styling for hero row */
+#involvements > div::-webkit-scrollbar {
+  height: 8px;
+}
+
+#involvements > div::-webkit-scrollbar-track {
+  background: var(--gf-color-surface-subtle, rgba(10, 37, 37, 0.4));
+  border-radius: 4px;
+}
+
+#involvements > div::-webkit-scrollbar-thumb {
+  background: var(--gf-color-accent, #00f2ff);
+  border-radius: 4px;
+  opacity: 0.6;
+}
+
+#involvements > div::-webkit-scrollbar-thumb:hover {
+  opacity: 1;
+}
+
+/* Firefox scrollbar styling */
+#involvements > div {
+  scrollbar-width: thin;
+  scrollbar-color: var(--gf-color-accent, #00f2ff) var(--gf-color-surface-subtle, rgba(10, 37, 37, 0.4));
+}
+

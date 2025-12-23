@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
           fontSize: "0.875rem"
         }}
       >
-        <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Eddie Knight. All rights reserved.</p>
         <div
           style={{
             display: "flex",
@@ -31,28 +31,37 @@ export const Footer: React.FC = () => {
           }}
         >
           <a
-            href="#"
+            href="https://github.com/eddie-knight"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               color: "var(--gf-color-text-subtle)",
-              textDecoration: "none"
+              textDecoration: "none",
+              transition: "color 0.2s"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = "var(--gf-color-accent)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = "var(--gf-color-text-subtle)";
             }}
           >
             GitHub
           </a>
           <a
-            href="#"
+            href="https://twitter.com/the_eddieknight"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               color: "var(--gf-color-text-subtle)",
-              textDecoration: "none"
+              textDecoration: "none",
+              transition: "color 0.2s"
             }}
-          >
-            LinkedIn
-          </a>
-          <a
-            href="#"
-            style={{
-              color: "var(--gf-color-text-subtle)",
-              textDecoration: "none"
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = "var(--gf-color-accent)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = "var(--gf-color-text-subtle)";
             }}
           >
             Twitter
