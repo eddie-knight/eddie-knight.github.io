@@ -49,7 +49,7 @@ export const Footer: React.FC = () => {
             GitHub
           </a>
           <a
-            href="https://twitter.com/the_eddieknight"
+            href="https://linkedin.com/in/knight1776"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -64,7 +64,7 @@ export const Footer: React.FC = () => {
               e.currentTarget.style.color = "var(--gf-color-text-subtle)";
             }}
           >
-            Twitter
+            LinkedIn
           </a>
         </div>
       </div>

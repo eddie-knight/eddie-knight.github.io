@@ -10,7 +10,7 @@ interface InvolvementCard {
 
 const involvements: InvolvementCard[] = [
   {
-    title: "Governing Board",
+    title: "Governing Board, Member",
     organization: "FINOS",
     url: "https://www.finos.org/governing-board",
     logo: "https://www.finos.org/wp-content/uploads/2021/02/finos-logo.svg",
@@ -73,7 +73,7 @@ const involvements: InvolvementCard[] = [
     description: "Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam, quis nostrum exercitationem."
   },
   {
-    title: "Sonatype, OSPO Lead",
+    title: "Open Source Program Office, Lead",
     organization: "Sonatype",
     url: "https://sonatype.com/",
     logo: "https://www.sonatype.com/hubfs/2021%20Website%20Redesign%20Assets/Brand/Sonatype-Logo-White.svg",
@@ -259,12 +259,11 @@ export const HomePage: React.FC = () => {
                   organization={involvement.organization}
                 />
 
-                {/* Organization */}
+                {/* Organization (medium-small text) */}
                 <div
                   style={{
-                    fontSize: "0.875rem",
+                    fontSize: "1rem",
                     color: "var(--gf-color-text-subtle)",
-                    marginBottom: "0.5rem",
                     textTransform: "uppercase",
                     letterSpacing: "0.05em"
                   }}
@@ -272,18 +271,42 @@ export const HomePage: React.FC = () => {
                   {involvement.organization}
                 </div>
 
-                {/* Title */}
-                <h3
-                  style={{
-                    fontSize: "1.5rem",
-                    fontWeight: 600,
-                    marginBottom: "var(--gf-space-md)",
-                    color: "var(--gf-color-text)",
-                    lineHeight: 1.3
-                  }}
-                >
-                  {involvement.title}
-                </h3>
+                {/* Project Name (mid-sized text) */}
+                {(() => {
+                  const parts = involvement.title.split(", ");
+                  const projectName = parts[0];
+                  const role = parts.slice(1).join(", ");
+                  
+                  return (
+                    <>
+                      <h3
+                        style={{
+                          fontSize: "1.25rem",
+                          fontWeight: 600,
+                          marginBottom: role ? "0.25rem" : "var(--gf-space-md)",
+                          color: "var(--gf-color-text)",
+                          lineHeight: 1.3
+                        }}
+                      >
+                        {projectName}
+                      </h3>
+                      {/* Role (small text) */}
+                      {role && (
+                        <div
+                          style={{
+                            fontSize: "0.75rem",
+                            color: "var(--gf-color-text-subtle)",
+                            marginBottom: "var(--gf-space-md)",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.05em"
+                          }}
+                        >
+                          {role}
+                        </div>
+                      )}
+                    </>
+                  );
+                })()}
 
                 {/* Description */}
                 <p
@@ -297,22 +320,6 @@ export const HomePage: React.FC = () => {
                 >
                   {involvement.description}
                 </p>
-
-                {/* Link indicator */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                    color: "var(--gf-color-accent)",
-                    fontSize: "0.875rem",
-                    fontWeight: 600,
-                    marginTop: "auto"
-                  }}
-                >
-                  <span>Learn more</span>
-                  <span>↗</span>
-                </div>
               </a>
             ))}
           </div>
