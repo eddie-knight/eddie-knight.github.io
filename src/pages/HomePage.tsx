@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 interface InvolvementCard {
   title: string;
   organization: string;
   url: string;
   logo?: string;
-  description: string;
 }
 
 const involvements: InvolvementCard[] = [
@@ -13,71 +12,61 @@ const involvements: InvolvementCard[] = [
     title: "Governing Board, Member",
     organization: "FINOS",
     url: "https://www.finos.org/governing-board",
-    logo: "https://www.finos.org/wp-content/uploads/2021/02/finos-logo.svg",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    logo: "https://www.finos.org/wp-content/uploads/2021/02/finos-logo.svg"
   },
   {
     title: "Technical Oversight Committee, Chair",
     organization: "FINOS",
     url: "https://www.finos.org/technical-oversight-committee",
-    logo: "https://www.finos.org/wp-content/uploads/2021/02/finos-logo.svg",
-    description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    logo: "https://www.finos.org/wp-content/uploads/2021/02/finos-logo.svg"
   },
   {
     title: "Common Cloud Controls, Steering Committee",
     organization: "FINOS",
     url: "https://www.finos.org/projects/finos-common-cloud-controls",
-    logo: "https://www.finos.org/wp-content/uploads/2021/02/finos-logo.svg",
-    description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    logo: "https://www.finos.org/wp-content/uploads/2021/02/finos-logo.svg"
   },
   {
-    title: "Technical Lead, TAG Security & Compliance",
+    title: "TAG Security & Compliance, Technical Lead",
     organization: "CNCF",
     url: "https://github.com/cncf/toc/tree/main/tags/tag-security-and-compliance",
-    logo: "https://www.cncf.io/wp-content/uploads/2022/07/cncf-logo.svg",
-    description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    logo: "https://www.cncf.io/wp-content/uploads/2022/07/cncf-logo.svg"
   },
   {
     title: "ORBIT, Working Group Lead",
     organization: "OpenSSF",
     url: "https://github.com/ossf/wg-orbit",
-    logo: "https://openssf.org/wp-content/uploads/sites/3/2021/06/openssf-logo.svg",
-    description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+    logo: "https://openssf.org/wp-content/uploads/sites/3/2021/06/openssf-logo.svg"
   },
   {
     title: "OSPS Baseline, Author & Maintainer",
     organization: "OpenSSF",
     url: "https://baseline.openssf.org/",
-    logo: "https://openssf.org/wp-content/uploads/sites/3/2021/06/openssf-logo.svg",
-    description: "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt."
+    logo: "https://openssf.org/wp-content/uploads/sites/3/2021/06/openssf-logo.svg"
   },
   {
     title: "Gemara, Author & Maintainer",
     organization: "OpenSSF",
     url: "https://gemara.openssf.org/",
-    logo: "https://openssf.org/wp-content/uploads/sites/3/2021/06/openssf-logo.svg",
-    description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur."
+    logo: "https://openssf.org/wp-content/uploads/sites/3/2021/06/openssf-logo.svg"
   },
   {
-    title: "Security Insights Specification, Maintainer",
+    title: "Security Insights Specification, Lead Maintainer",
     organization: "OpenSSF",
     url: "https://github.com/ossf/security-insights/tree/main/spec",
-    logo: "https://openssf.org/wp-content/uploads/sites/3/2021/06/openssf-logo.svg",
-    description: "Magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est."
+    logo: "https://openssf.org/wp-content/uploads/sites/3/2021/06/openssf-logo.svg"
   },
   {
-    title: "Privateer Project, Maintainer",
+    title: "Privateer Project, Lead Maintainer",
     organization: "Privateer",
     url: "http://privateerproj.com/",
-    logo: undefined, // Placeholder
-    description: "Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam, quis nostrum exercitationem."
+    logo: undefined // Placeholder
   },
   {
     title: "Open Source Program Office, Lead",
     organization: "Sonatype",
     url: "https://sonatype.com/",
-    logo: "https://www.sonatype.com/hubfs/2021%20Website%20Redesign%20Assets/Brand/Sonatype-Logo-White.svg",
-    description: "Ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum."
+    logo: "https://www.sonatype.com/hubfs/2021%20Website%20Redesign%20Assets/Brand/Sonatype-Logo-White.svg"
   }
 ];
 
@@ -137,6 +126,83 @@ const LogoComponent: React.FC<LogoComponentProps> = ({ logo, organization }) => 
 };
 
 export const HomePage: React.FC = () => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
+  const isUserInteractingRef = useRef(false);
+  const animationFrameRef = useRef<number | null>(null);
+  const resumeTimeoutRef = useRef<number | null>(null);
+  const scrollSpeed = 0.5; // pixels per frame
+
+  // Duplicate involvements for seamless infinite scroll
+  const duplicatedInvolvements = [...involvements, ...involvements];
+
+  // Sync ref with state
+  useEffect(() => {
+    isUserInteractingRef.current = isUserInteracting;
+  }, [isUserInteracting]);
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const autoScroll = () => {
+      if (!container || isUserInteractingRef.current) {
+        animationFrameRef.current = requestAnimationFrame(autoScroll);
+        return;
+      }
+
+      const scrollWidth = container.scrollWidth;
+      const firstSetWidth = scrollWidth / 2;
+      const currentScroll = container.scrollLeft;
+
+      // Increment scroll position
+      container.scrollLeft = currentScroll + scrollSpeed;
+
+      // Check if we've reached the duplicate set and reset seamlessly
+      if (container.scrollLeft >= firstSetWidth) {
+        container.scrollLeft = container.scrollLeft - firstSetWidth;
+      }
+
+      animationFrameRef.current = requestAnimationFrame(autoScroll);
+    };
+
+    // Start auto-scroll
+    animationFrameRef.current = requestAnimationFrame(autoScroll);
+
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, [scrollSpeed]);
+
+  // Handle user interaction
+  const handleUserInteraction = () => {
+    setIsUserInteracting(true);
+    
+    // Clear any existing resume timeout
+    if (resumeTimeoutRef.current) {
+      clearTimeout(resumeTimeoutRef.current);
+    }
+
+    // Resume auto-scroll after 2-3 seconds of inactivity
+    resumeTimeoutRef.current = setTimeout(() => {
+      setIsUserInteracting(false);
+    }, 2500);
+  };
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (resumeTimeoutRef.current) {
+        clearTimeout(resumeTimeoutRef.current);
+      }
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div
       style={{
@@ -201,14 +267,19 @@ export const HomePage: React.FC = () => {
           Involvements
         </h2>
         <div
+          ref={scrollContainerRef}
+          onMouseDown={handleUserInteraction}
+          onMouseMove={handleUserInteraction}
+          onTouchStart={handleUserInteraction}
+          onTouchMove={handleUserInteraction}
           style={{
             overflowX: "auto",
             overflowY: "hidden",
-            scrollBehavior: "smooth",
+            scrollBehavior: "auto",
             WebkitOverflowScrolling: "touch",
             paddingBottom: "var(--gf-space-md)",
-            marginLeft: "calc(-1 * var(--gf-space-xl))",
-            marginRight: "calc(-1 * var(--gf-space-xl))",
+            width: "100vw",
+            marginLeft: "calc(-50vw + 50%)",
             paddingLeft: "var(--gf-space-xl)",
             paddingRight: "var(--gf-space-xl)"
           }}
@@ -221,7 +292,7 @@ export const HomePage: React.FC = () => {
               width: "max-content"
             }}
           >
-            {involvements.map((involvement, index) => (
+            {duplicatedInvolvements.map((involvement, index) => (
               <a
                 key={index}
                 href={involvement.url}
@@ -307,19 +378,6 @@ export const HomePage: React.FC = () => {
                     </>
                   );
                 })()}
-
-                {/* Description */}
-                <p
-                  style={{
-                    color: "var(--gf-color-text-subtle)",
-                    lineHeight: 1.6,
-                    fontSize: "0.95rem",
-                    marginBottom: "var(--gf-space-md)",
-                    flex: 1
-                  }}
-                >
-                  {involvement.description}
-                </p>
               </a>
             ))}
           </div>
