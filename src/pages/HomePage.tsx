@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 interface InvolvementCard {
   title: string;
@@ -52,7 +52,7 @@ const affiliations: InvolvementCard[] = [
     logo: "https://openssf.org/wp-content/uploads/sites/3/2021/06/openssf-logo.svg"
   },
   {
-    title: "Security Insights Specification, Lead Maintainer",
+    title: "Security Insights, Lead Maintainer",
     organization: "OpenSSF",
     url: "https://github.com/ossf/security-insights/tree/main/spec",
     logo: "https://openssf.org/wp-content/uploads/sites/3/2021/06/openssf-logo.svg"
@@ -127,6 +127,7 @@ const LogoComponent: React.FC<LogoComponentProps> = ({ logo, organization }) => 
 };
 
 export const HomePage: React.FC = () => {
+  const location = useLocation();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isUserInteracting, setIsUserInteracting] = useState(false);
   const isUserInteractingRef = useRef(false);
@@ -217,12 +218,12 @@ export const HomePage: React.FC = () => {
       <section
         id="hero"
         style={{
+          minHeight: "30vh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           textAlign: "center",
-          marginBottom: "20vh"
         }}
       >
         <h1
@@ -243,12 +244,89 @@ export const HomePage: React.FC = () => {
             color: "var(--gf-color-text-subtle)",
             marginTop: "0.5rem",
             marginBottom: "var(--gf-space-lg)",
-            maxWidth: "800px",
             lineHeight: 1.6
           }}
         >
           Strategic Advisory
         </p>
+        <nav
+          style={{
+            display: "flex",
+            gap: "var(--gf-space-md)",
+            alignItems: "center",
+            marginTop: "var(--gf-space-md)"
+          }}
+        >
+          <Link
+            to="/"
+            style={{
+              color: "var(--gf-color-text)",
+              textDecoration: "none",
+              padding: "0.5rem 1rem",
+              borderRadius: "var(--gf-radius-lg)",
+              transition: "background-color 0.2s",
+              backgroundColor: location.pathname === "/" ? "var(--gf-color-accent-soft)" : "transparent"
+            }}
+            onMouseEnter={(e) => {
+              if (location.pathname !== "/") {
+                e.currentTarget.style.backgroundColor = "var(--gf-color-accent-soft)";
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (location.pathname !== "/") {
+                e.currentTarget.style.backgroundColor = "transparent";
+              }
+            }}
+          >
+            Home
+          </Link>
+          <Link
+            to="/bio"
+            style={{
+              color: "var(--gf-color-text)",
+              textDecoration: "none",
+              padding: "0.5rem 1rem",
+              borderRadius: "var(--gf-radius-lg)",
+              transition: "background-color 0.2s",
+              backgroundColor: location.pathname === "/bio" ? "var(--gf-color-accent-soft)" : "transparent"
+            }}
+            onMouseEnter={(e) => {
+              if (location.pathname !== "/bio") {
+                e.currentTarget.style.backgroundColor = "var(--gf-color-accent-soft)";
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (location.pathname !== "/bio") {
+                e.currentTarget.style.backgroundColor = "transparent";
+              }
+            }}
+          >
+            Bio
+          </Link>
+          <Link
+            to="/apply"
+            style={{
+              color: "var(--gf-color-text)",
+              textDecoration: "none",
+              padding: "0.5rem 1rem",
+              borderRadius: "var(--gf-radius-lg)",
+              transition: "background-color 0.2s",
+              backgroundColor: location.pathname === "/apply" ? "var(--gf-color-accent-soft)" : "transparent"
+            }}
+            onMouseEnter={(e) => {
+              if (location.pathname !== "/apply") {
+                e.currentTarget.style.backgroundColor = "var(--gf-color-accent-soft)";
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (location.pathname !== "/apply") {
+                e.currentTarget.style.backgroundColor = "transparent";
+              }
+            }}
+          >
+            Apply
+          </Link>
+        </nav>
       </section>
 
       {/* affiliations Section */}
@@ -304,7 +382,6 @@ export const HomePage: React.FC = () => {
                   flexDirection: "column",
                   textDecoration: "none",
                   color: "inherit",
-                  width: "325px",
                   flexShrink: 0
                 }}
                 onMouseEnter={(e) => {

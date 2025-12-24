@@ -4,10 +4,15 @@ import { Link, useLocation } from "react-router-dom";
 export const Header: React.FC = () => {
   const location = useLocation();
 
+  // Hide header on home page
+  if (location.pathname === "/") {
+    return null;
+  }
+
   return (
     <header
       style={{
-        padding: "var(--gf-space-md) var(--gf-space-lg)",
+        padding: "var(--gf-space-md) var(--gf-space-lg)"
       }}
     >
       <nav
