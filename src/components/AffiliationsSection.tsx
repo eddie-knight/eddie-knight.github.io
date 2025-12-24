@@ -1,14 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
-import { InvolvementCard } from "../../components/InvolvementCard";
-import finosLogo from "../../public/images/FINOS_Icon_Wordmark_Name_horz_White.svg";
-import finosCccLogo from "../../public/images/2023_FinosCCC_Horizontal_WHT.svg";
-import cncfLogo from "../../public/images/cncf-white.svg";
-import openssfLogo from "../../public/images/Open-SSF-Logo-horizontal-colorwhite.svg";
-import orbitLogo from "../../public/images/orbit_logo.svg";
-import baselineLogo from "../../public/images/baseline_logo.png";
-import gemaraLogo from "../../public/images/gemara-logo.png";
-import privateerLogo from "../../public/images/privateer-icon.png";
-import sonatypeLogo from "../../public/images/Sonatype_logo_white.svg";
+import { InvolvementCard } from "./InvolvementCard";
+import finosLogo from "../public/images/FINOS_Icon_Wordmark_Name_horz_White.svg";
+import finosCccLogo from "../public/images/2023_FinosCCC_Horizontal_WHT.svg";
+import cncfLogo from "../public/images/cncf-white.svg";
+import openssfLogo from "../public/images/Open-SSF-Logo-horizontal-colorwhite.svg";
+import orbitLogo from "../public/images/orbit_logo.svg";
+import baselineLogo from "../public/images/baseline_logo.png";
+import gemaraLogo from "../public/images/gemara-logo.png";
+import privateerLogo from "../public/images/privateer-icon.png";
+import sonatypeLogo from "../public/images/Sonatype_logo_white.svg";
 
 interface InvolvementCardData {
   title: string;

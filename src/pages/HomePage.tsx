@@ -1,7 +1,7 @@
 import React from "react";
 import { AvailabilitySection } from "./sections/AvailabilitySection";
 import { ThreePillarsSection } from "./sections/ThreePillarsSection";
-import { AffiliationsSection } from "./sections/AffiliationsSection";
+import { AffiliationsSection } from "../components/AffiliationsSection";
 
 
 export const HomePage: React.FC = () => {
@@ -13,9 +13,7 @@ export const HomePage: React.FC = () => {
         width: "100%"
       }}
     >
-      <div style={{ marginTop: "calc(var(--gf-space-xl) * 3)" }}>
-      <AffiliationsSection />
-      </div>
+      <AffiliationsSection/>
       <div style={{ marginTop: "calc(var(--gf-space-xl) * 3)" }}>
         <AvailabilitySection />
       </div>

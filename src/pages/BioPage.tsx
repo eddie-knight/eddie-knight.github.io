@@ -1,4 +1,6 @@
 import React from "react";
+import { TextSection } from "../components/TextSection";
+import { AffiliationsSection } from "../components/AffiliationsSection";
 
 export const BioPage: React.FC = () => {
   return (
@@ -10,231 +12,57 @@ export const BioPage: React.FC = () => {
         width: "100%"
       }}
     >
-      {/* The Narrative Section */}
-      <section
-        id="narrative"
-        style={{
-          marginBottom: "var(--gf-space-xl)",
-          padding: "var(--gf-space-xl)",
-          backgroundColor: "var(--gf-color-surface)",
-          borderRadius: "var(--gf-radius-xl)",
-          boxShadow: "var(--gf-shadow-surface)",
-          backdropFilter: "var(--gf-glass-blur)",
-          WebkitBackdropFilter: "var(--gf-glass-blur)",
-          border: "1px solid var(--gf-color-border-strong)"
-        }}
-      >
-        <h1
-          style={{
-            fontSize: "2.5rem",
-            fontWeight: 700,
-            marginBottom: "var(--gf-space-lg)",
-            color: "var(--gf-color-accent)",
-            lineHeight: 1.2
-          }}
-        >
-          I don't just consult on standards; I help write them.
-        </h1>
-        <p
-          style={{
-            color: "var(--gf-color-text)",
-            lineHeight: 1.8,
-            fontSize: "1.25rem",
-            marginBottom: "var(--gf-space-md)"
-          }}
-        >
-          My work sits at the intersection of high-scale engineering and global governance. As the Chair of the FINOS Technical Oversight Committee and a Lead at the CNCF and OpenSSF, I spend my days defining how the world's most critical financial and cloud infrastructure stays secure and compliant.
-        </p>
-      </section>
+      {/* Opening Narrative Section */}
+      <TextSection
+        paragraphs={[
+          "My work is centered on creating a unified governance stack that enables continuous compliance monitoring and \"compliance-as-code,\" ensuring that demand for software velocity is balanced with the requirements of regulatory resilience. By holding leadership positions such as Chair of the Technical Oversight Committee for FINOS and Technical Lead for the CNCF TAG Security & Compliance, I maintain real-time visibility into the latest trends and critical pain points facing both the open-source ecosystem and its largest global consumers."
+        ]}
+        textShadow={true}
+        maxWidth="1000px"
+      />
 
-      {/* My Superpowers Section */}
-      <section
-        id="superpowers"
-        style={{
-          marginBottom: "var(--gf-space-xl)"
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "2.5rem",
-            fontWeight: 600,
-            marginBottom: "var(--gf-space-xl)",
-            color: "var(--gf-color-accent)",
-            textAlign: "center"
-          }}
-        >
-          My Superpowers
-        </h2>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: "var(--gf-space-lg)"
-          }}
-        >
-          {/* Organizational Alignment */}
-          <div
-            style={{
-              padding: "var(--gf-space-xl)",
-              backgroundColor: "var(--gf-color-surface)",
-              borderRadius: "var(--gf-radius-xl)",
-              boxShadow: "var(--gf-shadow-surface)",
-              backdropFilter: "var(--gf-glass-blur)",
-              WebkitBackdropFilter: "var(--gf-glass-blur)",
-              border: "1px solid var(--gf-color-border-strong)",
-              transition: "transform 0.2s, box-shadow 0.2s"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-4px)";
-              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface-strong)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface)";
-            }}
-          >
-            <h3
-              style={{
-                fontSize: "1.75rem",
-                fontWeight: 600,
-                marginBottom: "var(--gf-space-md)",
-                color: "var(--gf-color-accent)"
-              }}
-            >
-              Organizational Alignment
-            </h3>
-            <p
-              style={{
-                color: "var(--gf-color-text)",
-                lineHeight: 1.7,
-                fontSize: "1.1rem"
-              }}
-            >
-              I bridge the gap between the boardroom's risk requirements and the engineering team's delivery goals.
-            </p>
-          </div>
+      <AffiliationsSection />
 
-          {/* Ecosystem Navigation */}
-          <div
-            style={{
-              padding: "var(--gf-space-xl)",
-              backgroundColor: "var(--gf-color-surface)",
-              borderRadius: "var(--gf-radius-xl)",
-              boxShadow: "var(--gf-shadow-surface)",
-              backdropFilter: "var(--gf-glass-blur)",
-              WebkitBackdropFilter: "var(--gf-glass-blur)",
-              border: "1px solid var(--gf-color-border-strong)",
-              transition: "transform 0.2s, box-shadow 0.2s"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-4px)";
-              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface-strong)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface)";
-            }}
-          >
-            <h3
-              style={{
-                fontSize: "1.75rem",
-                fontWeight: 600,
-                marginBottom: "var(--gf-space-md)",
-                color: "var(--gf-color-accent)"
-              }}
-            >
-              Ecosystem Navigation
-            </h3>
-            <p
-              style={{
-                color: "var(--gf-color-text)",
-                lineHeight: 1.7,
-                fontSize: "1.1rem"
-              }}
-            >
-              I leverage a global network of maintainers and policy-makers to ensure your internal projects align with where the industry is moving—not where it was five years ago.
-            </p>
-          </div>
+      {/* Key Work Section */}
+      <TextSection
+        title="Standards & Tools"
+        paragraphs={[
+          <>A cornerstone of my recent work is the <strong>Open Source Project Security (OSPS) Baseline</strong>, which I authored to establish a tiered maturity model for software supply chain security. This baseline has been adopted as the security standard for the Linux Foundation and the primary leading citation for the German government's BSI-TR-03185-2. To move standards such as these from policy to practice, I developed <strong>Privateer</strong>, a validation engine and test harness. This tool is now utilized to evaluate Linux Foundation projects, providing automated, machine-readable verification of compliance with established control objectives.</>
+        ]}
+        textShadow={true}
+        maxWidth="1000px"
+      />
 
-          {/* Strategic Remediation */}
-          <div
-            style={{
-              padding: "var(--gf-space-xl)",
-              backgroundColor: "var(--gf-color-surface)",
-              borderRadius: "var(--gf-radius-xl)",
-              boxShadow: "var(--gf-shadow-surface)",
-              backdropFilter: "var(--gf-glass-blur)",
-              WebkitBackdropFilter: "var(--gf-glass-blur)",
-              border: "1px solid var(--gf-color-border-strong)",
-              transition: "transform 0.2s, box-shadow 0.2s"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-4px)";
-              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface-strong)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface)";
-            }}
-          >
-            <h3
-              style={{
-                fontSize: "1.75rem",
-                fontWeight: 600,
-                marginBottom: "var(--gf-space-md)",
-                color: "var(--gf-color-accent)"
-              }}
-            >
-              Strategic Remediation
-            </h3>
-            <p
-              style={{
-                color: "var(--gf-color-text)",
-                lineHeight: 1.7,
-                fontSize: "1.1rem"
-              }}
-            >
-              I specialize in "clean-up" operations—taking complex, stalled, or fragmented initiatives and rebuilding them into high-performing, compliant systems.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Community & Policy Section */}
+      <TextSection
+        title="Community & Global Policy"
+        paragraphs={[
+          <>In addition to my architectural work, I am deeply involved in community-driven security initiatives and global policy. Since 2022, I have organized the <strong>CNCF Security Slam</strong>, an event dedicated to improving the security posture of cloud-native projects through actionable transparency. At KubeCon Europe in London, I delivered a keynote on the EU's Cyber Resilience Act (CRA) for a major international audience.</>
+        ]}
+        textShadow={true}
+        maxWidth="1000px"
+      />
 
-      {/* Current Focus Section */}
-      <section
-        id="current-focus"
-        style={{
-          marginBottom: "var(--gf-space-xl)",
-          padding: "var(--gf-space-xl)",
-          backgroundColor: "var(--gf-color-surface)",
-          borderRadius: "var(--gf-radius-xl)",
-          boxShadow: "var(--gf-shadow-surface)",
-          backdropFilter: "var(--gf-glass-blur)",
-          WebkitBackdropFilter: "var(--gf-glass-blur)",
-          border: "1px solid var(--gf-color-border-strong)"
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "2rem",
-            fontWeight: 600,
-            marginBottom: "var(--gf-space-md)",
-            color: "var(--gf-color-accent)"
-          }}
-        >
-          Current Focus
-        </h2>
-        <p
-          style={{
-            color: "var(--gf-color-text)",
-            lineHeight: 1.8,
-            fontSize: "1.25rem"
-          }}
-        >
-          I am currently 80% dedicated to building a next-generation GRC Engineering startup. I reserve the remaining 20% of my time for high-impact advisory roles where I can move the needle for organizations facing existential governance or engineering hurdles.
-        </p>
-      </section>
+      {/* Career Evolution Section */}
+      <TextSection
+        title="Strategic Impact"
+        paragraphs={[
+          "My career has evolved from acting as an individual contributor to serving as a strategic advisor for the world's largest cloud providers and most highly regulated organizations. By functioning like a super-node across the FINOS, CNCF, and OpenSSF, I help ensure that global security standards are not just understood, but are technically implementable and automated."
+        ]}
+        textShadow={true}
+        maxWidth="1000px"
+      />
+
+      {/* Philosophy & Future Section */}
+      <TextSection
+        title="Vision & Innovation"
+        paragraphs={[
+          <>Ultimately, I view GRC not as a bureaucratic bottleneck, but as a primary catalyst for organizational velocity when executed through a unified governance stack. This is why I've built <strong>Gemara</strong>, control catalogs in FINOS and Gemara, and Privateer.</>,
+          "And it's why I'm working with some big design partners to cook up a new product that you'll hear about very soon."
+        ]}
+        textShadow={true}
+        maxWidth="1000px"
+      />
     </div>
   );
 };
-
