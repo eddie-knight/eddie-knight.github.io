@@ -59,7 +59,7 @@ body {
 
 /* Base typography styles */
 h2 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 600;
   color: var(--gf-color-accent);
   margin-bottom: var(--gf-space-md);
@@ -106,7 +106,7 @@ h3 {
 @media (max-width: 768px) {
   /* Reduce h2 font size on mobile */
   .main-content h2 {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
   }
   
   /* Reduce h3 font size on mobile */

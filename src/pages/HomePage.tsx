@@ -13,9 +13,15 @@ export const HomePage: React.FC = () => {
         width: "100%"
       }}
     >
+      <div style={{ marginTop: "calc(var(--gf-space-xl) * 3)" }}>
       <AffiliationsSection />
-      <AvailabilitySection />
-      <ThreePillarsSection />
+      </div>
+      <div style={{ marginTop: "calc(var(--gf-space-xl) * 3)" }}>
+        <AvailabilitySection />
+      </div>
+      <div style={{ marginTop: "calc(var(--gf-space-xl) * 3)" }}>
+        <ThreePillarsSection />
+      </div>
     </div>
   );
 };
