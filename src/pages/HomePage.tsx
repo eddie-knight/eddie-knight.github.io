@@ -2,6 +2,13 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import finosLogo from "../public/images/FINOS_Icon_Wordmark_Name_horz_White.svg";
 import finosCccLogo from "../public/images/2023_FinosCCC_Horizontal_WHT.svg";
+import cncfLogo from "../public/images/cncf-white.svg";
+import openssfLogo from "../public/images/Open-SSF-Logo-horizontal-colorwhite.svg";
+import orbitLogo from "../public/images/orbit_logo.svg";
+import baselineLogo from "../public/images/baseline_logo.png";
+import gemaraLogo from "../public/images/gemara-logo.png";
+import privateerLogo from "../public/images/privateer-icon.png";
+import sonatypeLogo from "../public/images/Sonatype_logo_white.svg";
 
 interface InvolvementCard {
   title: string;
@@ -33,43 +40,43 @@ const affiliations: InvolvementCard[] = [
     title: "TAG Security & Compliance, Technical Lead",
     organization: "CNCF",
     url: "https://github.com/cncf/toc/tree/main/tags/tag-security-and-compliance",
-    logo: "https://www.cncf.io/wp-content/uploads/2022/07/cncf-logo.svg"
+    logo: cncfLogo
   },
   {
     title: "ORBIT, Working Group Lead",
     organization: "OpenSSF",
     url: "https://github.com/ossf/wg-orbit",
-    logo: "https://openssf.org/wp-content/uploads/sites/3/2021/06/openssf-logo.svg"
+    logo: orbitLogo
   },
   {
     title: "OSPS Baseline, Author & Maintainer",
     organization: "OpenSSF",
     url: "https://baseline.openssf.org/",
-    logo: "https://openssf.org/wp-content/uploads/sites/3/2021/06/openssf-logo.svg"
+    logo: baselineLogo
   },
   {
     title: "Gemara, Author & Maintainer",
     organization: "OpenSSF",
     url: "https://gemara.openssf.org/",
-    logo: "https://openssf.org/wp-content/uploads/sites/3/2021/06/openssf-logo.svg"
+    logo: gemaraLogo
   },
   {
     title: "Security Insights, Lead Maintainer",
     organization: "OpenSSF",
     url: "https://github.com/ossf/security-insights/tree/main/spec",
-    logo: "https://openssf.org/wp-content/uploads/sites/3/2021/06/openssf-logo.svg"
+    logo: openssfLogo
   },
   {
     title: "Privateer Project, Lead Maintainer",
     organization: "Privateer",
     url: "http://privateerproj.com/",
-    logo: undefined // Placeholder
+    logo: privateerLogo
   },
   {
     title: "Open Source Program Office, Lead",
     organization: "Sonatype",
     url: "https://sonatype.com/",
-    logo: "https://www.sonatype.com/hubfs/2021%20Website%20Redesign%20Assets/Brand/Sonatype-Logo-White.svg"
+    logo: sonatypeLogo
   }
 ];
 
@@ -345,7 +352,8 @@ export const HomePage: React.FC = () => {
             overflowY: "hidden",
             scrollBehavior: "auto",
             WebkitOverflowScrolling: "touch",
-            paddingBottom: "var(--gf-space-md)",
+            paddingBottom: "var(--gf-space-lg)",
+            paddingTop: "var(--gf-space-lg)",
             width: "100vw",
             marginLeft: "calc(-50vw + 50%)",
             paddingLeft: "var(--gf-space-xl)",
