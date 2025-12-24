@@ -28,6 +28,7 @@ export const App: React.FC = () => {
         <BackgroundArcs />
         <Header />
         <main
+          className="main-content"
           style={{
             flex: 1,
             padding: "var(--gf-space-lg)",

@@ -57,3 +57,55 @@ body {
   }
 }
 
+/* Responsive margins for main content */
+.main-content {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Tablet and up - add side margins */
+@media (min-width: 768px) {
+  .main-content {
+    margin-left: var(--gf-space-lg);
+    margin-right: var(--gf-space-lg);
+  }
+}
+
+/* Desktop - increase side margins */
+@media (min-width: 1024px) {
+  .main-content {
+    margin-left: var(--gf-space-xl);
+    margin-right: var(--gf-space-xl);
+  }
+}
+
+/* Large desktop - even larger margins */
+@media (min-width: 1440px) {
+  .main-content {
+    margin-left: calc(var(--gf-space-xl) * 2);
+    margin-right: calc(var(--gf-space-xl) * 2);
+  }
+}
+
+/* Responsive typography for home page on mobile */
+@media (max-width: 768px) {
+  /* Reduce h2 font size on mobile */
+  #oss-cta h2,
+  #grc-cta h2,
+  #three-pillars h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  /* Reduce paragraph font size on mobile */
+  #oss-cta p,
+  #grc-cta p,
+  #three-pillars p {
+    font-size: 1rem !important;
+  }
+  
+  /* Reduce h3 font size in pillar cards on mobile */
+  #three-pillars h3 {
+    font-size: 1.5rem !important;
+  }
+}
+

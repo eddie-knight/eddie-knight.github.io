@@ -464,7 +464,6 @@ export const HomePage: React.FC = () => {
         style={{
           marginBottom: "var(--gf-space-xl)",
           marginTop: "var(--gf-space-xl)",
-          padding: "var(--gf-space-xl)",
         }}
       >
         <h2
