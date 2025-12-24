@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { AvailabilitySection } from "./sections/AvailabilitySection";
 import { ThreePillarsSection } from "./sections/ThreePillarsSection";
+import { InvolvementCard } from "../components/InvolvementCard";
 import finosLogo from "../public/images/FINOS_Icon_Wordmark_Name_horz_White.svg";
 import finosCccLogo from "../public/images/2023_FinosCCC_Horizontal_WHT.svg";
 import cncfLogo from "../public/images/cncf-white.svg";
@@ -82,56 +82,6 @@ const affiliations: InvolvementCard[] = [
   },
 ];
 
-interface LogoComponentProps {
-  logo?: string;
-  organization: string;
-}
-
-const LogoComponent: React.FC<LogoComponentProps> = ({ logo, organization }) => {
-  const [imageError, setImageError] = useState(false);
-
-  return (
-    <div
-      style={{
-        minWidth: "80px",
-        height: "80px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      {logo && !imageError ? (
-        <img
-          src={logo}
-          alt={`${organization} logo`}
-          style={{
-            maxHeight: "80px",
-            maxWidth: "240px",
-            objectFit: "contain"
-          }}
-          onError={() => setImageError(true)}
-        />
-      ) : (
-        <div
-          style={{
-            width: "60px",
-            height: "60px",
-            background: "var(--gf-color-accent-soft)",
-            borderRadius: "var(--gf-radius-lg)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "var(--gf-color-accent)",
-            fontWeight: 600,
-            fontSize: "1.5rem"
-          }}
-        >
-          {organization.charAt(0)}
-        </div>
-      )}
-    </div>
-  );
-};
 
 export const HomePage: React.FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -318,78 +268,13 @@ export const HomePage: React.FC = () => {
             }}
           >
             {duplicatedaffiliations.map((involvement, index) => (
-              <a
+              <InvolvementCard
                 key={index}
-                href={involvement.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  padding: "var(--gf-space-md)",
-                  backgroundColor: "var(--gf-color-surface)",
-                  borderRadius: "var(--gf-radius-xl)",
-                  boxShadow: "var(--gf-shadow-surface)",
-                  backdropFilter: "var(--gf-glass-blur)",
-                  WebkitBackdropFilter: "var(--gf-glass-blur)",
-                  border: "1px solid var(--gf-color-border-strong)",
-                  transition: "transform 0.2s, box-shadow 0.2s",
-                  display: "flex",
-                  flexDirection: "column",
-                  textDecoration: "none",
-                  color: "inherit",
-                  flexShrink: 0
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-4px)";
-                  e.currentTarget.style.boxShadow = "var(--gf-shadow-surface-strong)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "var(--gf-shadow-surface)";
-                }}
-              >
-                {/* Logo */}
-                <LogoComponent
-                  logo={involvement.logo}
-                  organization={involvement.organization}
-                />
-
-                {/* Project Name (mid-sized text) */}
-                {(() => {
-                  const parts = involvement.title.split(", ");
-                  const projectName = parts[0];
-                  const role = parts.slice(1).join(", ");
-                  
-                  return (
-                    <>
-                      <h3
-                        style={{
-                          fontSize: "1.25rem",
-                          fontWeight: 600,
-                          marginBottom: role ? "0.25rem" : "var(--gf-space-md)",
-                          color: "var(--gf-color-text)",
-                          lineHeight: 1.3
-                        }}
-                      >
-                        {projectName}
-                      </h3>
-                      {/* Role (small text) */}
-                      {role && (
-                        <div
-                          style={{
-                            fontSize: "0.75rem",
-                            color: "var(--gf-color-text-subtle)",
-                            marginBottom: "var(--gf-space-md)",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.05em"
-                          }}
-                        >
-                          {role}
-                        </div>
-                      )}
-                    </>
-                  );
-                })()}
-              </a>
+                title={involvement.title}
+                organization={involvement.organization}
+                url={involvement.url}
+                logo={involvement.logo}
+              />
             ))}
           </div>
         </div>
