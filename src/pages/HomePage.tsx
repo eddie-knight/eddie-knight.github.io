@@ -1,9 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { CTACard } from "../components/CTACard";
-import { PillarCard } from "../components/PillarCard";
-import { TextSection } from "../components/TextSection";
-import { ListSection } from "../components/ListSection";
+import { AvailabilitySection } from "./sections/AvailabilitySection";
+import { ThreePillarsSection } from "./sections/ThreePillarsSection";
 import finosLogo from "../public/images/FINOS_Icon_Wordmark_Name_horz_White.svg";
 import finosCccLogo from "../public/images/2023_FinosCCC_Horizontal_WHT.svg";
 import cncfLogo from "../public/images/cncf-white.svg";
@@ -397,95 +395,8 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Availability Notice Section */}
-      <TextSection
-        paragraphs={[
-          "Throughout 2024 and 2025, I have been fortunate to launch multiple initiatives and support a wide range of teams through ad-hoc advising and technical mentorship. However, to ensure I can provide the highest level of depth and attention to the projects I lead and the organizations I support, I am narrowing my availability for 2026.",
-          "My bandwidth is currently dedicated to the governance boards, steering committees, and maintainer roles listed above. Outside of these institutional commitments, my availability is prioritized as follows:"
-        ]}
-        textShadow={true}
-        maxWidth="1000px"
-      />
-      <ListSection
-        items={[
-          <><strong>Open Source Maintainers:</strong> The health of the ecosystem is my top priority. If you're a maintainer looking to collaborate or discuss topics like community structure or security standards, just reach out to me on Slack.</>,
-          <><strong>Organizations & Leadership:</strong> I'm accepting a limited number of Paid Strategic Intensives. These are high-leverage engagements designed to solve specific friction points in GRC or Open Source Strategy.</>
-        ]}
-        textShadow={true}
-        maxWidth="1000px"
-      />
-      <TextSection
-        paragraphs={[
-          "Check out my philosophy and advisory topics below, then use the corresponding links to start the conversation."
-        ]}
-        textShadow={true}
-        maxWidth="1000px"
-      />
-
-      {/* OSS Strategy CTA Section */}
-      <CTACard
-        id="oss-cta"
-        title="Are you engaging strategically with open source projects?"
-        paragraphs={[
-          "Open source is no longer just \"free software\"—it is the foundation of your stack. If your team is merely consuming OSS without a strategy, you're at the mercy of external roadmaps and security vulnerabilities. And if you're contributing externally to projects, or paying for memberships to foundations, you may be missing out on critical benefits and opportunities.",
-          "I help organizations move from passive usage to strategic contribution, ensuring your engineering team has a seat at the table of the projects you depend on. Let's turn your open-source engagement into a competitive advantage and a talent magnet."
-        ]}
-        buttonText="Apply for an OSS Strategy Session"
-        buttonDisabled={true}
-      />
-
-      {/* Three Pillars Section */}
-      <section
-        id="three-pillars"
-        style={{
-          marginBottom: "var(--gf-space-xl)",
-          marginTop: "var(--gf-space-xl)",
-        }}
-      >
-        <TextSection
-          title="Three Pillars of Engineering"
-          subtitle="Engage strategically, or fail haphazardly"
-          paragraphs={[
-            "Regardless of your organization's size, sustainable technical excellence requires balancing what we build (Code), how we operate (Community), and the guardrails that ensure consistency (Standards). Aligning these three pillars reduces cognitive load while increasing velocity and security."
-          ]}
-          centered={true}
-          textShadow={true}
-          maxWidth="900px"
-          lastParagraphMargin="var(--gf-space-xl)"
-        />
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: "var(--gf-space-lg)"
-          }}
-        >
-          <PillarCard
-            title="Code"
-            description='Code is the basis of value delivery. This pillar embraces "Everything as Code"—infrastructure, configuration, and testing—maximizing automation to eliminate manual bottlenecks and errors. When built with modularity and automated rigor, systems become self-documenting, reproducible, and agile.'
-          />
-          <PillarCard
-            title="Community"
-            description="Software architecture mirrors human organization, according to Conway's Law. Understanding this, even for solo operations, is key to excellent decision-making. This pillar emphasizes healthy interpersonal structures that match the desired technical state. It fosters psychological safety, knowledge sharing, and collaboration to transform tribal knowledge into shared, accessible resources."
-          />
-          <PillarCard
-            title="Standards"
-            description="Standards provide pre-agreed constraints to enable contributor autonomy (including both humans and AI agents). This pillar encompasses security protocols, quality benchmarks, document schemas, and reusable workflows. Consistency across teams ensures interoperability and reduces technical debt."
-          />
-        </div>
-      </section>
-
-      {/* GRC CTA Section */}
-      <CTACard
-        id="grc-cta"
-        title="Is your GRC a Bottleneck or a Bridge?"
-        paragraphs={[
-          "Most organizations treat compliance as a tax that must be paid instead of an engineering discipline. When security and policy are manual checklists, they stall innovation.",
-          "But when they're expressed as standardized Policy-as-Code, they become accelerators on the path to production. If your cloud controls are opaque, your audit trails are fragmented, or your security posture is slowing your release cycles, we should talk about building governance that scales."
-        ]}
-        buttonText="Apply for a GRC & Operations Strategic Intensive"
-        buttonDisabled={true}
-      />
+      <AvailabilitySection />
+      <ThreePillarsSection />
 
     </div>
   );
