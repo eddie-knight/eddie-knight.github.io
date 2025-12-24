@@ -57,6 +57,21 @@ body {
   }
 }
 
+/* Base typography styles */
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--gf-color-accent);
+  margin-bottom: var(--gf-space-md);
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--gf-color-accent);
+  margin-bottom: var(--gf-space-md);
+}
+
 /* Responsive margins for main content */
 .main-content {
   margin-left: 0;
@@ -87,13 +102,16 @@ body {
   }
 }
 
-/* Responsive typography for home page on mobile */
+/* Responsive typography for mobile */
 @media (max-width: 768px) {
   /* Reduce h2 font size on mobile */
-  #oss-cta h2,
-  #grc-cta h2,
-  #three-pillars h2 {
-    font-size: 1.75rem !important;
+  .main-content h2 {
+    font-size: 1.75rem;
+  }
+  
+  /* Reduce h3 font size on mobile */
+  .main-content h3 {
+    font-size: 1.5rem;
   }
   
   /* Reduce paragraph font size on mobile */
@@ -101,11 +119,6 @@ body {
   #grc-cta p,
   #three-pillars p {
     font-size: 1rem !important;
-  }
-  
-  /* Reduce h3 font size in pillar cards on mobile */
-  #three-pillars h3 {
-    font-size: 1.5rem !important;
   }
 }
 

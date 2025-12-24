@@ -407,14 +407,7 @@ export const HomePage: React.FC = () => {
           border: "1px solid var(--gf-color-border-strong)"
         }}
       >
-        <h2
-          style={{
-            fontSize: "2.5rem",
-            fontWeight: 600,
-            marginBottom: "var(--gf-space-md)",
-            color: "var(--gf-color-accent)"
-          }}
-        >
+        <h2>
           Are you engaging strategically with open source projects?
         </h2>
         <p
@@ -468,10 +461,7 @@ export const HomePage: React.FC = () => {
       >
         <h2
           style={{
-            fontSize: "2.5rem",
-            fontWeight: 600,
             marginBottom: "0.5rem",
-            color: "var(--gf-color-accent)",
             textAlign: "center"
           }}
         >
@@ -529,14 +519,7 @@ export const HomePage: React.FC = () => {
               e.currentTarget.style.boxShadow = "var(--gf-shadow-surface)";
             }}
           >
-            <h3
-              style={{
-                fontSize: "1.75rem",
-                fontWeight: 600,
-                marginBottom: "var(--gf-space-md)",
-                color: "var(--gf-color-accent)"
-              }}
-            >
+            <h3>
               Code
             </h3>
             <p
@@ -571,14 +554,7 @@ export const HomePage: React.FC = () => {
               e.currentTarget.style.boxShadow = "var(--gf-shadow-surface)";
             }}
           >
-            <h3
-              style={{
-                fontSize: "1.75rem",
-                fontWeight: 600,
-                marginBottom: "var(--gf-space-md)",
-                color: "var(--gf-color-accent)"
-              }}
-            >
+            <h3>
               Community
             </h3>
             <p
@@ -613,14 +589,7 @@ export const HomePage: React.FC = () => {
               e.currentTarget.style.boxShadow = "var(--gf-shadow-surface)";
             }}
           >
-            <h3
-              style={{
-                fontSize: "1.75rem",
-                fontWeight: 600,
-                marginBottom: "var(--gf-space-md)",
-                color: "var(--gf-color-accent)"
-              }}
-            >
+            <h3>
               Standards
             </h3>
             <p
@@ -650,14 +619,7 @@ export const HomePage: React.FC = () => {
           border: "1px solid var(--gf-color-border-strong)"
         }}
       >
-        <h2
-          style={{
-            fontSize: "2.5rem",
-            fontWeight: 600,
-            marginBottom: "var(--gf-space-md)",
-            color: "var(--gf-color-accent)"
-          }}
-        >
+        <h2>
           Is your GRC a Bottleneck or a Bridge?
         </h2>
         <p
