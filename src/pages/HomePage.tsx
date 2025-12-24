@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import finosLogo from "../public/images/FINOS_Icon_Wordmark_Name_horz_White.svg";
+import finosCccLogo from "../public/images/2023_FinosCCC_Horizontal_WHT.svg";
 
 interface InvolvementCard {
   title: string;
@@ -13,19 +15,19 @@ const affiliations: InvolvementCard[] = [
     title: "Governing Board, Member",
     organization: "FINOS",
     url: "https://www.finos.org/governing-board",
-    logo: "https://www.finos.org/wp-content/uploads/2021/02/finos-logo.svg"
+    logo: finosLogo
   },
   {
     title: "Technical Oversight Committee, Chair",
     organization: "FINOS",
     url: "https://www.finos.org/technical-oversight-committee",
-    logo: "https://www.finos.org/wp-content/uploads/2021/02/finos-logo.svg"
+    logo: finosLogo
   },
   {
     title: "Common Cloud Controls, Steering Committee",
     organization: "FINOS",
     url: "https://www.finos.org/projects/finos-common-cloud-controls",
-    logo: "https://www.finos.org/wp-content/uploads/2021/02/finos-logo.svg"
+    logo: finosCccLogo
   },
   {
     title: "TAG Security & Compliance, Technical Lead",
@@ -82,15 +84,11 @@ const LogoComponent: React.FC<LogoComponentProps> = ({ logo, organization }) => 
   return (
     <div
       style={{
-        width: "80px",
+        minWidth: "80px",
         height: "80px",
-        marginBottom: "var(--gf-space-md)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "var(--gf-color-surface-subtle)",
-        borderRadius: "var(--gf-radius-lg)",
-        padding: "var(--gf-space-md)"
       }}
     >
       {logo && !imageError ? (
@@ -98,7 +96,6 @@ const LogoComponent: React.FC<LogoComponentProps> = ({ logo, organization }) => 
           src={logo}
           alt={`${organization} logo`}
           style={{
-            maxWidth: "100%",
             maxHeight: "100%",
             objectFit: "contain"
           }}
@@ -398,18 +395,6 @@ export const HomePage: React.FC = () => {
                   logo={involvement.logo}
                   organization={involvement.organization}
                 />
-
-                {/* Organization (medium-small text) */}
-                <div
-                  style={{
-                    fontSize: "1rem",
-                    color: "var(--gf-color-text-subtle)",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em"
-                  }}
-                >
-                  {involvement.organization}
-                </div>
 
                 {/* Project Name (mid-sized text) */}
                 {(() => {
