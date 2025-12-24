@@ -438,8 +438,7 @@ export const HomePage: React.FC = () => {
           I help organizations move from passive usage to strategic contribution, ensuring your engineering team has a seat at the table of the projects you depend on. Let's turn your open-source engagement into a competitive advantage and a talent magnet.
         </p>
         <div style={{ textAlign: "center" }}>
-          <Link
-            to="/apply"
+          <div
             style={{
               display: "inline-block",
               padding: "var(--gf-space-lg) var(--gf-space-xl)",
@@ -448,21 +447,14 @@ export const HomePage: React.FC = () => {
               borderRadius: "var(--gf-radius-lg)",
               fontSize: "1.25rem",
               fontWeight: 600,
-              textDecoration: "none",
-              transition: "transform 0.2s, box-shadow 0.2s",
+              opacity: 0.6,
+              cursor: "not-allowed",
+              pointerEvents: "none",
               boxShadow: "var(--gf-shadow-surface)"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface-strong)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface)";
             }}
           >
             Apply for an OSS Strategy Intensive
-          </Link>
+          </div>
         </div>
       </section>
 
@@ -680,8 +672,7 @@ export const HomePage: React.FC = () => {
           Most organizations treat compliance as a tax on engineering. I treat it as an engineering discipline. When security and policy are manual checklists, they stall innovation. But when they're expressed as standardized Policy-as-Code, they become accelerators on the path to production. If your cloud controls are opaque, your audit trails are fragmented, or your security posture is slowing your release cycles, we should talk about building governance that scales.
         </p>
         <div style={{ textAlign: "center" }}>
-          <Link
-            to="/apply"
+          <div
             style={{
               display: "inline-block",
               padding: "var(--gf-space-lg) var(--gf-space-xl)",
@@ -690,21 +681,14 @@ export const HomePage: React.FC = () => {
               borderRadius: "var(--gf-radius-lg)",
               fontSize: "1.25rem",
               fontWeight: 600,
-              textDecoration: "none",
-              transition: "transform 0.2s, box-shadow 0.2s",
+              opacity: 0.6,
+              cursor: "not-allowed",
+              pointerEvents: "none",
               boxShadow: "var(--gf-shadow-surface)"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface-strong)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface)";
             }}
           >
             Apply for a GRC & Operations Strategic Intensive
-          </Link>
+          </div>
         </div>
       </section>
 
