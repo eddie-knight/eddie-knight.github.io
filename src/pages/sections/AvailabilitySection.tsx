@@ -18,19 +18,11 @@ export const AvailabilitySection: React.FC = () => {
       <ListSection
         items={[
           <><strong>Open Source Maintainers:</strong> The health of our ecosystem is my top priority. If you're a maintainer looking to collaborate or discuss topics like community structure or security standards, just reach out to me on Slack.</>,
-          <><strong>Organizations & Leadership:</strong> I'm accepting a limited number of Paid Strategic Intensives. These are high-leverage engagements designed to solve specific friction points in GRC or Open Source Strategy.</>
+          <><strong>Organizations & Leadership:</strong> I'm accepting a limited number of Paid Strategic Intensives. These are high-leverage engagements designed to solve specific friction points in GRC or Open Source Strategy. Check out my philosophy and advisory topics below, then use the corresponding links to start the conversation.</>,
         ]}
         textShadow={true}
         maxWidth="1000px"
       />
-      <TextSection
-        paragraphs={[
-          "Check out my philosophy and advisory topics below, then use the corresponding links to start the conversation."
-        ]}
-        textShadow={true}
-        maxWidth="1000px"
-      />
-
       {/* OSS Strategy CTA Section */}
       <CTACard
         id="oss-cta"
