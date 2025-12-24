@@ -18,7 +18,7 @@ export const ThreePillarsSection: React.FC = () => {
           title="Three Pillars of Engineering"
           subtitle="Engage strategically, or fail haphazardly"
           paragraphs={[
-            "Regardless of your organization's size, sustainable technical excellence requires balancing what we build (Code), how we operate (Community), and the guardrails that ensure consistency (Standards). Aligning these three pillars reduces cognitive load while increasing velocity and security."
+            "Regardless of your organization's size, sustainable technical excellence requires balancing what we build (Technology), how we operate (Community), and the guardrails that ensure consistency (Standards). Aligning these three pillars reduces cognitive load while increasing velocity and security."
           ]}
           centered={true}
           textShadow={true}
@@ -33,8 +33,8 @@ export const ThreePillarsSection: React.FC = () => {
           }}
         >
           <PillarCard
-            title="Code"
-            description='Code is the basis of value delivery. This pillar embraces "Everything as Code"—infrastructure, configuration, and testing—maximizing automation to eliminate manual bottlenecks and errors. When built with modularity and automated rigor, systems become self-documenting, reproducible, and agile.'
+            title="Technology"
+            description='Technology is the basis of consistent and scalable value delivery. This pillar embraces a technology-first approach—infrastructure, configuration, and testing—maximizing automation to eliminate manual bottlenecks and errors. When built with modularity and automated rigor, systems become self-documenting, reproducible, and agile.'
           />
           <PillarCard
             title="Community"
