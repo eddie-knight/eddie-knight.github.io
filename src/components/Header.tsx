@@ -47,7 +47,7 @@ export const Header: React.FC = () => {
             lineHeight: 1.6
           }}
         >
-          Strategic Advisory
+          Strategic Advisor
         </p>
         <nav
           style={{
