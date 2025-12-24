@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { CTACard } from "../components/CTACard";
 import finosLogo from "../public/images/FINOS_Icon_Wordmark_Name_horz_White.svg";
 import finosCccLogo from "../public/images/2023_FinosCCC_Horizontal_WHT.svg";
 import cncfLogo from "../public/images/cncf-white.svg";
@@ -394,62 +395,16 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* OSS Strategy CTA Section */}
-      <section
+      <CTACard
         id="oss-cta"
-        style={{
-          marginBottom: "var(--gf-space-xl)",
-          padding: "var(--gf-space-xl)",
-          backgroundColor: "var(--gf-color-surface)",
-          borderRadius: "var(--gf-radius-xl)",
-          boxShadow: "var(--gf-shadow-surface)",
-          backdropFilter: "var(--gf-glass-blur)",
-          WebkitBackdropFilter: "var(--gf-glass-blur)",
-          border: "1px solid var(--gf-color-border-strong)"
-        }}
-      >
-        <h2>
-          Are you engaging strategically with open source projects?
-        </h2>
-        <p
-          style={{
-            color: "var(--gf-color-text)",
-            lineHeight: 1.8,
-            fontSize: "1.25rem",
-            marginBottom: "var(--gf-space-lg)"
-          }}
-        >
-          Open source is no longer just "free software"—it is the foundation of your stack. If your team is merely consuming OSS without a strategy, you're at the mercy of external roadmaps and security vulnerabilities. And if you're contributing externally to projects, or paying for memberships to foundations, you may be missing out on critical benefits and opportunities. 
-        </p>
-        <p
-          style={{
-            color: "var(--gf-color-text)",
-            lineHeight: 1.8,
-            fontSize: "1.25rem",
-            marginBottom: "var(--gf-space-lg)"
-          }}
-        >
-          I help organizations move from passive usage to strategic contribution, ensuring your engineering team has a seat at the table of the projects you depend on. Let's turn your open-source engagement into a competitive advantage and a talent magnet.
-        </p>
-        <div style={{ textAlign: "center" }}>
-          <div
-            style={{
-              display: "inline-block",
-              padding: "var(--gf-space-lg) var(--gf-space-xl)",
-              backgroundColor: "var(--gf-color-accent)",
-              color: "var(--gf-color-button-text)",
-              borderRadius: "var(--gf-radius-lg)",
-              fontSize: "1.25rem",
-              fontWeight: 600,
-              opacity: 0.6,
-              cursor: "not-allowed",
-              pointerEvents: "none",
-              boxShadow: "var(--gf-shadow-surface)"
-            }}
-          >
-            Apply for an OSS Strategy Intensive
-          </div>
-        </div>
-      </section>
+        title="Are you engaging strategically with open source projects?"
+        paragraphs={[
+          "Open source is no longer just \"free software\"—it is the foundation of your stack. If your team is merely consuming OSS without a strategy, you're at the mercy of external roadmaps and security vulnerabilities. And if you're contributing externally to projects, or paying for memberships to foundations, you may be missing out on critical benefits and opportunities.",
+          "I help organizations move from passive usage to strategic contribution, ensuring your engineering team has a seat at the table of the projects you depend on. Let's turn your open-source engagement into a competitive advantage and a talent magnet."
+        ]}
+        buttonText="Apply for an OSS Strategy Intensive"
+        buttonDisabled={true}
+      />
 
       {/* Three Pillars Section */}
       <section
@@ -606,52 +561,15 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* GRC CTA Section */}
-      <section
+      <CTACard
         id="grc-cta"
-        style={{
-          marginBottom: "var(--gf-space-xl)",
-          padding: "var(--gf-space-xl)",
-          backgroundColor: "var(--gf-color-surface)",
-          borderRadius: "var(--gf-radius-xl)",
-          boxShadow: "var(--gf-shadow-surface)",
-          backdropFilter: "var(--gf-glass-blur)",
-          WebkitBackdropFilter: "var(--gf-glass-blur)",
-          border: "1px solid var(--gf-color-border-strong)"
-        }}
-      >
-        <h2>
-          Is your GRC a Bottleneck or a Bridge?
-        </h2>
-        <p
-          style={{
-            color: "var(--gf-color-text)",
-            lineHeight: 1.8,
-            fontSize: "1.25rem",
-            marginBottom: "var(--gf-space-lg)"
-          }}
-        >
-          Most organizations treat compliance as a tax on engineering. I treat it as an engineering discipline. When security and policy are manual checklists, they stall innovation. But when they're expressed as standardized Policy-as-Code, they become accelerators on the path to production. If your cloud controls are opaque, your audit trails are fragmented, or your security posture is slowing your release cycles, we should talk about building governance that scales.
-        </p>
-        <div style={{ textAlign: "center" }}>
-          <div
-            style={{
-              display: "inline-block",
-              padding: "var(--gf-space-lg) var(--gf-space-xl)",
-              backgroundColor: "var(--gf-color-accent)",
-              color: "var(--gf-color-button-text)",
-              borderRadius: "var(--gf-radius-lg)",
-              fontSize: "1.25rem",
-              fontWeight: 600,
-              opacity: 0.6,
-              cursor: "not-allowed",
-              pointerEvents: "none",
-              boxShadow: "var(--gf-shadow-surface)"
-            }}
-          >
-            Apply for a GRC & Operations Strategic Intensive
-          </div>
-        </div>
-      </section>
+        title="Is your GRC a Bottleneck or a Bridge?"
+        paragraphs={[
+          "Most organizations treat compliance as a tax on engineering. I treat it as an engineering discipline. When security and policy are manual checklists, they stall innovation. But when they're expressed as standardized Policy-as-Code, they become accelerators on the path to production. If your cloud controls are opaque, your audit trails are fragmented, or your security posture is slowing your release cycles, we should talk about building governance that scales."
+        ]}
+        buttonText="Apply for a GRC & Operations Strategic Intensive"
+        buttonDisabled={true}
+      />
 
     </div>
   );
