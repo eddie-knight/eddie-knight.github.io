@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CTACard } from "../components/CTACard";
+import { PillarCard } from "../components/PillarCard";
 import finosLogo from "../public/images/FINOS_Icon_Wordmark_Name_horz_White.svg";
 import finosCccLogo from "../public/images/2023_FinosCCC_Horizontal_WHT.svg";
 import cncfLogo from "../public/images/cncf-white.svg";
@@ -402,7 +403,7 @@ export const HomePage: React.FC = () => {
           "Open source is no longer just \"free software\"—it is the foundation of your stack. If your team is merely consuming OSS without a strategy, you're at the mercy of external roadmaps and security vulnerabilities. And if you're contributing externally to projects, or paying for memberships to foundations, you may be missing out on critical benefits and opportunities.",
           "I help organizations move from passive usage to strategic contribution, ensuring your engineering team has a seat at the table of the projects you depend on. Let's turn your open-source engagement into a competitive advantage and a talent magnet."
         ]}
-        buttonText="Apply for an OSS Strategy Intensive"
+        buttonText="Apply for an OSS Strategy Session"
         buttonDisabled={true}
       />
 
@@ -453,110 +454,18 @@ export const HomePage: React.FC = () => {
             gap: "var(--gf-space-lg)"
           }}
         >
-          {/* Pillar 1: Code */}
-          <div
-            style={{
-              padding: "var(--gf-space-xl)",
-              backgroundColor: "var(--gf-color-surface)",
-              borderRadius: "var(--gf-radius-xl)",
-              boxShadow: "var(--gf-shadow-surface)",
-              backdropFilter: "var(--gf-glass-blur)",
-              WebkitBackdropFilter: "var(--gf-glass-blur)",
-              border: "1px solid var(--gf-color-border-strong)",
-              transition: "transform 0.2s, box-shadow 0.2s"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-4px)";
-              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface-strong)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface)";
-            }}
-          >
-            <h3>
-              Code
-            </h3>
-            <p
-              style={{
-                color: "var(--gf-color-text)",
-                lineHeight: 1.7,
-                fontSize: "1.1rem"
-              }}
-            >
-              Code is the basis of value delivery. This pillar embraces "Everything as Code"—infrastructure, configuration, and testing—maximizing automation to eliminate manual bottlenecks and errors. When built with modularity and automated rigor, systems become self-documenting, reproducible, and agile.
-            </p>
-          </div>
-
-          {/* Pillar 2: Community */}
-          <div
-            style={{
-              padding: "var(--gf-space-xl)",
-              backgroundColor: "var(--gf-color-surface)",
-              borderRadius: "var(--gf-radius-xl)",
-              boxShadow: "var(--gf-shadow-surface)",
-              backdropFilter: "var(--gf-glass-blur)",
-              WebkitBackdropFilter: "var(--gf-glass-blur)",
-              border: "1px solid var(--gf-color-border-strong)",
-              transition: "transform 0.2s, box-shadow 0.2s"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-4px)";
-              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface-strong)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface)";
-            }}
-          >
-            <h3>
-              Community
-            </h3>
-            <p
-              style={{
-                color: "var(--gf-color-text)",
-                lineHeight: 1.7,
-                fontSize: "1.1rem"
-              }}
-            >
-              Software architecture mirrors human organization, according to Conway's Law. Understanding this, even for solo operations, is key to excellent decision-making. This pillar emphasizes healthy interpersonal structures that match the desired technical state. It fosters psychological safety, knowledge sharing, and collaboration to transform tribal knowledge into shared, accessible resources.
-            </p>
-          </div>
-
-          {/* Pillar 3: Standards */}
-          <div
-            style={{
-              padding: "var(--gf-space-xl)",
-              backgroundColor: "var(--gf-color-surface)",
-              borderRadius: "var(--gf-radius-xl)",
-              boxShadow: "var(--gf-shadow-surface)",
-              backdropFilter: "var(--gf-glass-blur)",
-              WebkitBackdropFilter: "var(--gf-glass-blur)",
-              border: "1px solid var(--gf-color-border-strong)",
-              transition: "transform 0.2s, box-shadow 0.2s"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-4px)";
-              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface-strong)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface)";
-            }}
-          >
-            <h3>
-              Standards
-            </h3>
-            <p
-              style={{
-                color: "var(--gf-color-text)",
-                lineHeight: 1.7,
-                fontSize: "1.1rem"
-              }}
-            >
-              Standards provide pre-agreed constraints to enable contributor autonomy (including both humans and AI agents). This pillar encompasses security protocols, quality benchmarks, document schemas, and reusable workflows. Consistency across teams ensures interoperability and reduces technical debt.
-            </p>
-          </div>
+          <PillarCard
+            title="Code"
+            description='Code is the basis of value delivery. This pillar embraces "Everything as Code"—infrastructure, configuration, and testing—maximizing automation to eliminate manual bottlenecks and errors. When built with modularity and automated rigor, systems become self-documenting, reproducible, and agile.'
+          />
+          <PillarCard
+            title="Community"
+            description="Software architecture mirrors human organization, according to Conway's Law. Understanding this, even for solo operations, is key to excellent decision-making. This pillar emphasizes healthy interpersonal structures that match the desired technical state. It fosters psychological safety, knowledge sharing, and collaboration to transform tribal knowledge into shared, accessible resources."
+          />
+          <PillarCard
+            title="Standards"
+            description="Standards provide pre-agreed constraints to enable contributor autonomy (including both humans and AI agents). This pillar encompasses security protocols, quality benchmarks, document schemas, and reusable workflows. Consistency across teams ensures interoperability and reduces technical debt."
+          />
         </div>
       </section>
 
@@ -565,7 +474,8 @@ export const HomePage: React.FC = () => {
         id="grc-cta"
         title="Is your GRC a Bottleneck or a Bridge?"
         paragraphs={[
-          "Most organizations treat compliance as a tax on engineering. I treat it as an engineering discipline. When security and policy are manual checklists, they stall innovation. But when they're expressed as standardized Policy-as-Code, they become accelerators on the path to production. If your cloud controls are opaque, your audit trails are fragmented, or your security posture is slowing your release cycles, we should talk about building governance that scales."
+          "Most organizations treat compliance as a tax that must be paid instead of an engineering discipline. When security and policy are manual checklists, they stall innovation.",
+          "But when they're expressed as standardized Policy-as-Code, they become accelerators on the path to production. If your cloud controls are opaque, your audit trails are fragmented, or your security posture is slowing your release cycles, we should talk about building governance that scales."
         ]}
         buttonText="Apply for a GRC & Operations Strategic Intensive"
         buttonDisabled={true}
@@ -574,4 +484,3 @@ export const HomePage: React.FC = () => {
     </div>
   );
 };
-
