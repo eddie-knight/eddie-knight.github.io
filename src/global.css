@@ -50,3 +50,10 @@ body {
   display: none; /* Chrome, Safari, Opera */
 }
 
+/* Responsive padding for header on large screens */
+@media (min-width: 1024px) {
+  .site-header {
+    padding-top: calc(var(--gf-space-xl) * 2) !important;
+  }
+}
+

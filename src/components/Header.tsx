@@ -4,31 +4,57 @@ import { Link, useLocation } from "react-router-dom";
 export const Header: React.FC = () => {
   const location = useLocation();
 
-  // Hide header on home page
-  if (location.pathname === "/") {
-    return null;
-  }
-
   return (
     <header
+      className="site-header"
       style={{
-        padding: "var(--gf-space-md) var(--gf-space-lg)"
+        maxWidth: "1200px",
+        margin: "0 auto",
+        padding: "var(--gf-space-xl)",
+        width: "100%"
       }}
     >
-      <nav
+      {/* Hero Section */}
+      <section
+        id="hero"
         style={{
+          minHeight: "30vh",
           display: "flex",
-          justifyContent: "flex-end",
+          flexDirection: "column",
+          justifyContent: "center",
           alignItems: "center",
-          maxWidth: "1200px",
-          margin: "0 auto"
+          textAlign: "center",
         }}
       >
+        <h1
+          style={{
+            fontSize: "3.5rem",
+            fontWeight: 700,
+            marginBottom: 0,
+            color: "var(--gf-color-text)",
+            lineHeight: 1.1,
+            maxWidth: "900px"
+          }}
+        >
+          Eddie Knight
+        </h1>
+        <p
+          style={{
+            fontSize: "2rem",
+            color: "var(--gf-color-text-subtle)",
+            marginTop: "0.5rem",
+            marginBottom: "var(--gf-space-lg)",
+            lineHeight: 1.6
+          }}
+        >
+          Strategic Advisory
+        </p>
         <nav
           style={{
             display: "flex",
             gap: "var(--gf-space-md)",
-            alignItems: "center"
+            alignItems: "center",
+            marginTop: "var(--gf-space-md)"
           }}
         >
           <Link
@@ -101,7 +127,7 @@ export const Header: React.FC = () => {
             Apply
           </Link>
         </nav>
-      </nav>
+      </section>
     </header>
   );
 };
