@@ -277,7 +277,6 @@ export const HomePage: React.FC = () => {
       style={{
         maxWidth: "1200px",
         margin: "0 auto",
-        padding: "var(--gf-space-xl)",
         width: "100%"
       }}
     >
@@ -393,6 +392,184 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* Three Pillars Section */}
+      <section
+        id="three-pillars"
+        style={{
+          marginBottom: "var(--gf-space-xl)",
+          marginTop: "var(--gf-space-xl)",
+          padding: "var(--gf-space-xl)",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "2.5rem",
+            fontWeight: 600,
+            marginBottom: "0.5rem",
+            color: "var(--gf-color-accent)",
+            textAlign: "center"
+          }}
+        >
+          Three Pillars of Technical Success
+        </h2>
+        <p
+          style={{
+            fontSize: "1.5rem",
+            color: "var(--gf-color-text-subtle)",
+            marginBottom: "var(--gf-space-lg)",
+            textAlign: "center"
+          }}
+        >
+          Code, Community, and Standards
+        </p>
+        <p
+          style={{
+            color: "var(--gf-color-text)",
+            lineHeight: 1.8,
+            fontSize: "1.25rem",
+            marginBottom: "var(--gf-space-xl)",
+            textAlign: "center",
+            maxWidth: "900px",
+            marginLeft: "auto",
+            marginRight: "auto"
+          }}
+        >
+          Sustainable technical excellence requires balancing what we build (Code), how we collaborate (Community), and the guardrails that ensure consistency (Standards). Aligning these three pillars reduces cognitive load while increasing velocity and security.
+        </p>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: "var(--gf-space-lg)"
+          }}
+        >
+          {/* Pillar 1: Code */}
+          <div
+            style={{
+              padding: "var(--gf-space-xl)",
+              backgroundColor: "var(--gf-color-surface)",
+              borderRadius: "var(--gf-radius-xl)",
+              boxShadow: "var(--gf-shadow-surface)",
+              backdropFilter: "var(--gf-glass-blur)",
+              WebkitBackdropFilter: "var(--gf-glass-blur)",
+              border: "1px solid var(--gf-color-border-strong)",
+              transition: "transform 0.2s, box-shadow 0.2s"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-4px)";
+              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface-strong)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface)";
+            }}
+          >
+            <h3
+              style={{
+                fontSize: "1.75rem",
+                fontWeight: 600,
+                marginBottom: "var(--gf-space-md)",
+                color: "var(--gf-color-accent)"
+              }}
+            >
+              Code
+            </h3>
+            <p
+              style={{
+                color: "var(--gf-color-text)",
+                lineHeight: 1.7,
+                fontSize: "1.1rem"
+              }}
+            >
+              Code is the basis of value delivery. This pillar embraces "Everything as Code"—infrastructure, configuration, and testing—maximizing automation to eliminate manual bottlenecks and errors. When built with modularity and automated rigor, systems become self-documenting, reproducible, and agile.
+            </p>
+          </div>
+
+          {/* Pillar 2: Community */}
+          <div
+            style={{
+              padding: "var(--gf-space-xl)",
+              backgroundColor: "var(--gf-color-surface)",
+              borderRadius: "var(--gf-radius-xl)",
+              boxShadow: "var(--gf-shadow-surface)",
+              backdropFilter: "var(--gf-glass-blur)",
+              WebkitBackdropFilter: "var(--gf-glass-blur)",
+              border: "1px solid var(--gf-color-border-strong)",
+              transition: "transform 0.2s, box-shadow 0.2s"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-4px)";
+              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface-strong)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface)";
+            }}
+          >
+            <h3
+              style={{
+                fontSize: "1.75rem",
+                fontWeight: 600,
+                marginBottom: "var(--gf-space-md)",
+                color: "var(--gf-color-accent)"
+              }}
+            >
+              Community
+            </h3>
+            <p
+              style={{
+                color: "var(--gf-color-text)",
+                lineHeight: 1.7,
+                fontSize: "1.1rem"
+              }}
+            >
+              Software architecture mirrors human organization, according to Conway's Law. This pillar emphasizes healthy interpersonal structures that match the desired technical state. It fosters psychological safety, knowledge sharing, and collaboration to transform tribal knowledge into shared, accessible resources.
+            </p>
+          </div>
+
+          {/* Pillar 3: Standards */}
+          <div
+            style={{
+              padding: "var(--gf-space-xl)",
+              backgroundColor: "var(--gf-color-surface)",
+              borderRadius: "var(--gf-radius-xl)",
+              boxShadow: "var(--gf-shadow-surface)",
+              backdropFilter: "var(--gf-glass-blur)",
+              WebkitBackdropFilter: "var(--gf-glass-blur)",
+              border: "1px solid var(--gf-color-border-strong)",
+              transition: "transform 0.2s, box-shadow 0.2s"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-4px)";
+              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface-strong)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "var(--gf-shadow-surface)";
+            }}
+          >
+            <h3
+              style={{
+                fontSize: "1.75rem",
+                fontWeight: 600,
+                marginBottom: "var(--gf-space-md)",
+                color: "var(--gf-color-accent)"
+              }}
+            >
+              Standards
+            </h3>
+            <p
+              style={{
+                color: "var(--gf-color-text)",
+                lineHeight: 1.7,
+                fontSize: "1.1rem"
+              }}
+            >
+              Standards provide pre-agreed constraints to enable contributor autonomy (including both humans and AI agents). This pillar encompasses security protocols, quality benchmarks, document schemas, and reusable workflows. Consistency across teams ensures interoperability and reduces technical debt.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Problem Section */}
       <section
