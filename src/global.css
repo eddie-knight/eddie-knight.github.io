@@ -114,8 +114,9 @@ h3 {
     font-size: 1.5rem;
   }
   
-  /* Reduce paragraph font size on mobile */
+  /* Reduce paragraph and list item font size on mobile */
   .text-section p,
+  .text-section li,
   #oss-cta p,
   #grc-cta p,
   #three-pillars p {

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { CTACard } from "../components/CTACard";
 import { PillarCard } from "../components/PillarCard";
 import { TextSection } from "../components/TextSection";
+import { ListSection } from "../components/ListSection";
 import finosLogo from "../public/images/FINOS_Icon_Wordmark_Name_horz_White.svg";
 import finosCccLogo from "../public/images/2023_FinosCCC_Horizontal_WHT.svg";
 import cncfLogo from "../public/images/cncf-white.svg";
@@ -399,10 +400,22 @@ export const HomePage: React.FC = () => {
       {/* Availability Notice Section */}
       <TextSection
         paragraphs={[
-          "Throughout 2024 and 2025, I have been fortunate to support a wide range of teams through ad-hoc advising and technical mentorship. However, to ensure I can provide the highest level of depth and attention to the projects I lead and the organizations I support, I am narrowing my availability for 2026.",
-          "My bandwidth is currently dedicated to the governance boards, steering committees, and maintainer roles listed above. Outside of these institutional commitments, my availability is prioritized as follows:",
-          <><strong>For Open Source Maintainers:</strong> The health of the ecosystem is my top priority. If you're a maintainer seeking guidance on community structure or security standards, please reach out via our established Slack channels.</>,
-          <><strong>For Organizations & Leadership:</strong> I'm accepting a limited number of Paid Strategic Intensives. These are high-leverage engagements designed to solve specific friction points in GRC or Open Source Strategy.</>,
+          "Throughout 2024 and 2025, I have been fortunate to launch multiple initiatives and support a wide range of teams through ad-hoc advising and technical mentorship. However, to ensure I can provide the highest level of depth and attention to the projects I lead and the organizations I support, I am narrowing my availability for 2026.",
+          "My bandwidth is currently dedicated to the governance boards, steering committees, and maintainer roles listed above. Outside of these institutional commitments, my availability is prioritized as follows:"
+        ]}
+        textShadow={true}
+        maxWidth="1000px"
+      />
+      <ListSection
+        items={[
+          <><strong>Open Source Maintainers:</strong> The health of the ecosystem is my top priority. If you're a maintainer looking to collaborate or discuss topics like community structure or security standards, just reach out to me on Slack.</>,
+          <><strong>Organizations & Leadership:</strong> I'm accepting a limited number of Paid Strategic Intensives. These are high-leverage engagements designed to solve specific friction points in GRC or Open Source Strategy.</>
+        ]}
+        textShadow={true}
+        maxWidth="1000px"
+      />
+      <TextSection
+        paragraphs={[
           "Check out my philosophy and advisory topics below, then use the corresponding links to start the conversation."
         ]}
         textShadow={true}
