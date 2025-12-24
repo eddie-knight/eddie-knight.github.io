@@ -137,7 +137,9 @@ export const HomePage: React.FC = () => {
   const isUserInteractingRef = useRef(false);
   const animationFrameRef = useRef<number | null>(null);
   const resumeTimeoutRef = useRef<number | null>(null);
+  const lastScrollPositionRef = useRef<number>(0);
   const scrollSpeed = 0.5; // pixels per frame
+  const maxScrollSpeed = scrollSpeed * 3; // 3x the normal speed
 
   // Duplicate affiliations for seamless infinite scroll
   const duplicatedaffiliations = [...affiliations, ...affiliations];
@@ -158,16 +160,22 @@ export const HomePage: React.FC = () => {
       }
 
       const scrollWidth = container.scrollWidth;
-      const firstSetWidth = scrollWidth / 2;
+      const clientWidth = container.clientWidth;
+      const maxScroll = scrollWidth - clientWidth;
+      // Calculate first set width based on actual scrollable distance
+      const firstSetMaxScroll = maxScroll / 2;
       const currentScroll = container.scrollLeft;
 
-      // Increment scroll position
-      container.scrollLeft = currentScroll + scrollSpeed;
+      // Calculate new scroll position
+      let newScroll = currentScroll + scrollSpeed;
 
-      // Check if we've reached the duplicate set and reset seamlessly
-      if (container.scrollLeft >= firstSetWidth) {
-        container.scrollLeft = container.scrollLeft - firstSetWidth;
+      // Reset when we reach the halfway point of the scrollable area
+      // This ensures seamless infinite scroll without delay
+      if (newScroll >= firstSetMaxScroll) {
+        newScroll = newScroll - firstSetMaxScroll;
       }
+
+      container.scrollLeft = newScroll;
 
       animationFrameRef.current = requestAnimationFrame(autoScroll);
     };
@@ -196,6 +204,64 @@ export const HomePage: React.FC = () => {
       setIsUserInteracting(false);
     }, 2500);
   };
+
+
+  // Initialize last scroll position
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      lastScrollPositionRef.current = container.scrollLeft;
+    }
+  }, []);
+
+  // Add native wheel listener with passive: false to properly prevent default
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleWheelNative = (e: WheelEvent) => {
+      // Only handle horizontal scrolling
+      const deltaX = e.deltaX || (e.shiftKey ? e.deltaY : 0);
+      if (Math.abs(deltaX) < 0.1) return;
+
+      handleUserInteraction();
+
+      // Prevent ALL default scrolling
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+
+      // Cap the scroll delta - normal speed is 0.5px/frame, 3x = 1.5px/frame
+      // At 60fps that's 90px/sec. Cap wheel events to 15px per event (very restrictive)
+      const maxDeltaPerEvent = 15;
+      const cappedDelta = Math.sign(deltaX) * Math.min(Math.abs(deltaX), maxDeltaPerEvent);
+
+      // Manually scroll with capped speed
+      const scrollWidth = container.scrollWidth;
+      const clientWidth = container.clientWidth;
+      const maxScroll = scrollWidth - clientWidth;
+      const firstSetMaxScroll = maxScroll / 2;
+
+      let newScroll = container.scrollLeft + cappedDelta;
+
+      // Handle infinite scroll reset
+      if (newScroll >= firstSetMaxScroll) {
+        newScroll = newScroll - firstSetMaxScroll;
+      } else if (newScroll < 0) {
+        newScroll = 0;
+      }
+
+      container.scrollLeft = newScroll;
+      lastScrollPositionRef.current = newScroll;
+    };
+
+    // Use native listener with passive: false to allow preventDefault
+    container.addEventListener('wheel', handleWheelNative, { passive: false });
+
+    return () => {
+      container.removeEventListener('wheel', handleWheelNative);
+    };
+  }, [handleUserInteraction]);
 
   // Cleanup on unmount
   useEffect(() => {
@@ -344,7 +410,6 @@ export const HomePage: React.FC = () => {
         <div
           ref={scrollContainerRef}
           onMouseDown={handleUserInteraction}
-          onMouseMove={handleUserInteraction}
           onTouchStart={handleUserInteraction}
           onTouchMove={handleUserInteraction}
           style={{
