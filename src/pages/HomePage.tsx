@@ -410,7 +410,7 @@ export const HomePage: React.FC = () => {
             textAlign: "center"
           }}
         >
-          Three Pillars of Technical Success
+          Three Pillars of Engineering
         </h2>
         <p
           style={{
@@ -420,7 +420,7 @@ export const HomePage: React.FC = () => {
             textAlign: "center"
           }}
         >
-          Code, Community, and Standards
+          Engage strategically, or fail haphazardly
         </p>
         <p
           style={{
@@ -434,7 +434,7 @@ export const HomePage: React.FC = () => {
             marginRight: "auto"
           }}
         >
-          Sustainable technical excellence requires balancing what we build (Code), how we collaborate (Community), and the guardrails that ensure consistency (Standards). Aligning these three pillars reduces cognitive load while increasing velocity and security.
+          Regardless of your organization's size, sustainable technical excellence requires balancing what we build (Code), how we operate (Community), and the guardrails that ensure consistency (Standards). Aligning these three pillars reduces cognitive load while increasing velocity and security.
         </p>
         <div
           style={{
@@ -523,7 +523,7 @@ export const HomePage: React.FC = () => {
                 fontSize: "1.1rem"
               }}
             >
-              Software architecture mirrors human organization, according to Conway's Law. This pillar emphasizes healthy interpersonal structures that match the desired technical state. It fosters psychological safety, knowledge sharing, and collaboration to transform tribal knowledge into shared, accessible resources.
+              Software architecture mirrors human organization, according to Conway's Law. Understanding this, even for solo operations, is key to excellent decision-making. This pillar emphasizes healthy interpersonal structures that match the desired technical state. It fosters psychological safety, knowledge sharing, and collaboration to transform tribal knowledge into shared, accessible resources.
             </p>
           </div>
 
