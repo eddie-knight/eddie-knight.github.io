@@ -141,8 +141,8 @@ export const HomePage: React.FC = () => {
   const scrollSpeed = 0.5; // pixels per frame
   const maxScrollSpeed = scrollSpeed * 3; // 3x the normal speed
 
-  // Duplicate affiliations for seamless infinite scroll
-  const duplicatedaffiliations = [...affiliations, ...affiliations];
+  // Triple affiliations for seamless infinite scroll (3x length)
+  const duplicatedaffiliations = [...affiliations, ...affiliations, ...affiliations];
 
   // Sync ref with state
   useEffect(() => {
@@ -161,18 +161,17 @@ export const HomePage: React.FC = () => {
 
       const scrollWidth = container.scrollWidth;
       const clientWidth = container.clientWidth;
-      const maxScroll = scrollWidth - clientWidth;
-      // Calculate first set width based on actual scrollable distance
-      const firstSetMaxScroll = maxScroll / 2;
+      // With 3 sets, one set is 1/3 of the total width
+      const oneSetWidth = scrollWidth / 3;
       const currentScroll = container.scrollLeft;
 
       // Calculate new scroll position
       let newScroll = currentScroll + scrollSpeed;
 
-      // Reset when we reach the halfway point of the scrollable area
-      // This ensures seamless infinite scroll without delay
-      if (newScroll >= firstSetMaxScroll) {
-        newScroll = newScroll - firstSetMaxScroll;
+      // Reset when we've scrolled past one full set (when first set leaves viewport)
+      // This creates seamless infinite scroll without visual jump
+      if (newScroll >= oneSetWidth) {
+        newScroll = newScroll - oneSetWidth;
       }
 
       container.scrollLeft = newScroll;
@@ -238,15 +237,14 @@ export const HomePage: React.FC = () => {
 
       // Manually scroll with capped speed
       const scrollWidth = container.scrollWidth;
-      const clientWidth = container.clientWidth;
-      const maxScroll = scrollWidth - clientWidth;
-      const firstSetMaxScroll = maxScroll / 2;
+      // With 3 sets, one set is 1/3 of the total width
+      const oneSetWidth = scrollWidth / 3;
 
       let newScroll = container.scrollLeft + cappedDelta;
 
-      // Handle infinite scroll reset
-      if (newScroll >= firstSetMaxScroll) {
-        newScroll = newScroll - firstSetMaxScroll;
+      // Reset when we've scrolled past one full set (when first set leaves viewport)
+      if (newScroll >= oneSetWidth) {
+        newScroll = newScroll - oneSetWidth;
       } else if (newScroll < 0) {
         newScroll = 0;
       }
