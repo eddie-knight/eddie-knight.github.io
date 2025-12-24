@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CTACard } from "../components/CTACard";
 import { PillarCard } from "../components/PillarCard";
+import { TextSection } from "../components/TextSection";
 import finosLogo from "../public/images/FINOS_Icon_Wordmark_Name_horz_White.svg";
 import finosCccLogo from "../public/images/2023_FinosCCC_Horizontal_WHT.svg";
 import cncfLogo from "../public/images/cncf-white.svg";
@@ -395,6 +396,19 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* Availability Notice Section */}
+      <TextSection
+        paragraphs={[
+          "Throughout 2024 and 2025, I have been fortunate to support a wide range of teams through ad-hoc advising and technical mentorship. However, to ensure I can provide the highest level of depth and attention to the projects I lead and the organizations I support, I am narrowing my availability for 2026.",
+          "My bandwidth is currently dedicated to the governance boards, steering committees, and maintainer roles listed above. Outside of these institutional commitments, my availability is prioritized as follows:",
+          <><strong>For Open Source Maintainers:</strong> I remain committed to the health of the ecosystem. If you are a maintainer seeking guidance on community structure or security standards, please reach out via our established Slack channels.</>,
+          <><strong>For Organizations & Leadership:</strong> I am accepting a limited number of Paid Strategic Intensives. These are high-leverage engagements designed to solve specific friction points in GRC or Open Source Strategy.</>,
+          "Check out my philosophy and advisory topics below, then use the corresponding links to start the conversation."
+        ]}
+        textShadow={true}
+        maxWidth="1000px"
+      />
+
       {/* OSS Strategy CTA Section */}
       <CTACard
         id="oss-cta"
@@ -415,38 +429,17 @@ export const HomePage: React.FC = () => {
           marginTop: "var(--gf-space-xl)",
         }}
       >
-        <h2
-          style={{
-            marginBottom: "0.5rem",
-            textAlign: "center"
-          }}
-        >
-          Three Pillars of Engineering
-        </h2>
-        <p
-          style={{
-            fontSize: "1.5rem",
-            color: "var(--gf-color-text-subtle)",
-            marginBottom: "var(--gf-space-lg)",
-            textAlign: "center"
-          }}
-        >
-          Engage strategically, or fail haphazardly
-        </p>
-        <p
-          style={{
-            color: "var(--gf-color-text)",
-            lineHeight: 1.8,
-            fontSize: "1.25rem",
-            marginBottom: "var(--gf-space-xl)",
-            textAlign: "center",
-            maxWidth: "900px",
-            marginLeft: "auto",
-            marginRight: "auto"
-          }}
-        >
-          Regardless of your organization's size, sustainable technical excellence requires balancing what we build (Code), how we operate (Community), and the guardrails that ensure consistency (Standards). Aligning these three pillars reduces cognitive load while increasing velocity and security.
-        </p>
+        <TextSection
+          title="Three Pillars of Engineering"
+          subtitle="Engage strategically, or fail haphazardly"
+          paragraphs={[
+            "Regardless of your organization's size, sustainable technical excellence requires balancing what we build (Code), how we operate (Community), and the guardrails that ensure consistency (Standards). Aligning these three pillars reduces cognitive load while increasing velocity and security."
+          ]}
+          centered={true}
+          textShadow={true}
+          maxWidth="900px"
+          lastParagraphMargin="var(--gf-space-xl)"
+        />
         <div
           style={{
             display: "grid",
