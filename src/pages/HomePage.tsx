@@ -401,8 +401,8 @@ export const HomePage: React.FC = () => {
         paragraphs={[
           "Throughout 2024 and 2025, I have been fortunate to support a wide range of teams through ad-hoc advising and technical mentorship. However, to ensure I can provide the highest level of depth and attention to the projects I lead and the organizations I support, I am narrowing my availability for 2026.",
           "My bandwidth is currently dedicated to the governance boards, steering committees, and maintainer roles listed above. Outside of these institutional commitments, my availability is prioritized as follows:",
-          <><strong>For Open Source Maintainers:</strong> I remain committed to the health of the ecosystem. If you are a maintainer seeking guidance on community structure or security standards, please reach out via our established Slack channels.</>,
-          <><strong>For Organizations & Leadership:</strong> I am accepting a limited number of Paid Strategic Intensives. These are high-leverage engagements designed to solve specific friction points in GRC or Open Source Strategy.</>,
+          <><strong>For Open Source Maintainers:</strong> The health of the ecosystem is my top priority. If you're a maintainer seeking guidance on community structure or security standards, please reach out via our established Slack channels.</>,
+          <><strong>For Organizations & Leadership:</strong> I'm accepting a limited number of Paid Strategic Intensives. These are high-leverage engagements designed to solve specific friction points in GRC or Open Source Strategy.</>,
           "Check out my philosophy and advisory topics below, then use the corresponding links to start the conversation."
         ]}
         textShadow={true}

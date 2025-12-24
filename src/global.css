@@ -115,6 +115,7 @@ h3 {
   }
   
   /* Reduce paragraph font size on mobile */
+  .text-section p,
   #oss-cta p,
   #grc-cta p,
   #three-pillars p {

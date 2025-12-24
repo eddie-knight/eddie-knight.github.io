@@ -45,7 +45,7 @@ export const TextSection: React.FC<TextSectionProps> = ({
   };
 
   return (
-    <section style={sectionStyle}>
+    <section className="text-section" style={sectionStyle}>
       {title && (
         <h2
           style={{
