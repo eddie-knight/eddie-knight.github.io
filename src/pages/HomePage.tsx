@@ -19,6 +19,12 @@ interface InvolvementCard {
 
 const affiliations: InvolvementCard[] = [
   {
+    title: "Office of the CTO, OSPO Lead",
+    organization: "Sonatype",
+    url: "https://sonatype.com/",
+    logo: sonatypeLogo
+  },
+  {
     title: "Governing Board, Member",
     organization: "FINOS",
     url: "https://www.finos.org/governing-board",
@@ -72,12 +78,6 @@ const affiliations: InvolvementCard[] = [
     url: "http://privateerproj.com/",
     logo: privateerLogo
   },
-  {
-    title: "Open Source Program Office, Lead",
-    organization: "Sonatype",
-    url: "https://sonatype.com/",
-    logo: sonatypeLogo
-  }
 ];
 
 interface LogoComponentProps {
@@ -103,7 +103,8 @@ const LogoComponent: React.FC<LogoComponentProps> = ({ logo, organization }) => 
           src={logo}
           alt={`${organization} logo`}
           style={{
-            maxHeight: "100%",
+            maxHeight: "80px",
+            maxWidth: "240px",
             objectFit: "contain"
           }}
           onError={() => setImageError(true)}
