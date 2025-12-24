@@ -1,34 +1,24 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
 export const Header: React.FC = () => {
+  const location = useLocation();
+
   return (
     <header
       style={{
-        padding: "var(--gf-space-lg)",
-        borderBottom: "1px solid var(--gf-color-border-strong)",
-        backgroundColor: "var(--gf-color-surface)",
-        backdropFilter: "var(--gf-glass-blur)",
-        WebkitBackdropFilter: "var(--gf-glass-blur)"
+        padding: "var(--gf-space-md) var(--gf-space-lg)",
       }}
     >
       <nav
         style={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "flex-end",
           alignItems: "center",
           maxWidth: "1200px",
           margin: "0 auto"
         }}
       >
-        <div
-          style={{
-            fontSize: "1.5rem",
-            fontWeight: 700,
-            color: "var(--gf-color-accent)"
-          }}
-        >
-          Eddie Knight
-        </div>
         <nav
           style={{
             display: "flex",
@@ -36,60 +26,75 @@ export const Header: React.FC = () => {
             alignItems: "center"
           }}
         >
-          <a
-            href="#involvements"
+          <Link
+            to="/"
             style={{
               color: "var(--gf-color-text)",
               textDecoration: "none",
               padding: "0.5rem 1rem",
               borderRadius: "var(--gf-radius-lg)",
-              transition: "background-color 0.2s"
+              transition: "background-color 0.2s",
+              backgroundColor: location.pathname === "/" ? "var(--gf-color-accent-soft)" : "transparent"
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "var(--gf-color-accent-soft)";
+              if (location.pathname !== "/") {
+                e.currentTarget.style.backgroundColor = "var(--gf-color-accent-soft)";
+              }
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "transparent";
+              if (location.pathname !== "/") {
+                e.currentTarget.style.backgroundColor = "transparent";
+              }
             }}
           >
-            Involvements
-          </a>
-          <a
-            href="#about"
+            Home
+          </Link>
+          <Link
+            to="/bio"
             style={{
               color: "var(--gf-color-text)",
               textDecoration: "none",
               padding: "0.5rem 1rem",
               borderRadius: "var(--gf-radius-lg)",
-              transition: "background-color 0.2s"
+              transition: "background-color 0.2s",
+              backgroundColor: location.pathname === "/bio" ? "var(--gf-color-accent-soft)" : "transparent"
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "var(--gf-color-accent-soft)";
+              if (location.pathname !== "/bio") {
+                e.currentTarget.style.backgroundColor = "var(--gf-color-accent-soft)";
+              }
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "transparent";
+              if (location.pathname !== "/bio") {
+                e.currentTarget.style.backgroundColor = "transparent";
+              }
             }}
           >
-            About
-          </a>
-          <a
-            href="#contact"
+            Bio
+          </Link>
+          <Link
+            to="/apply"
             style={{
               color: "var(--gf-color-text)",
               textDecoration: "none",
               padding: "0.5rem 1rem",
               borderRadius: "var(--gf-radius-lg)",
-              transition: "background-color 0.2s"
+              transition: "background-color 0.2s",
+              backgroundColor: location.pathname === "/apply" ? "var(--gf-color-accent-soft)" : "transparent"
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "var(--gf-color-accent-soft)";
+              if (location.pathname !== "/apply") {
+                e.currentTarget.style.backgroundColor = "var(--gf-color-accent-soft)";
+              }
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "transparent";
+              if (location.pathname !== "/apply") {
+                e.currentTarget.style.backgroundColor = "transparent";
+              }
             }}
           >
-            Contact
-          </a>
+            Apply
+          </Link>
         </nav>
       </nav>
     </header>

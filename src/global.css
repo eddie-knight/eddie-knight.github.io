@@ -21,7 +21,6 @@ body {
 }
 
 /* Cyan Flow theme enhancements */
-.cyan-theme section,
 .cyan-theme aside,
 .cyan-theme [class*="card"] {
   backdrop-filter: var(--gf-glass-blur, none);
@@ -42,12 +41,12 @@ body {
 }
 
 /* Hide scrollbar for infinite scroll hero row */
-#involvements > div {
+#affiliations > div {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
 }
 
-#involvements > div::-webkit-scrollbar {
+#affiliations > div::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
 

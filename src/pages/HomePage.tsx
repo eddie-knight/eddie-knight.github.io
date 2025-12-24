@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 interface InvolvementCard {
   title: string;
@@ -7,7 +8,7 @@ interface InvolvementCard {
   logo?: string;
 }
 
-const involvements: InvolvementCard[] = [
+const affiliations: InvolvementCard[] = [
   {
     title: "Governing Board, Member",
     organization: "FINOS",
@@ -133,8 +134,8 @@ export const HomePage: React.FC = () => {
   const resumeTimeoutRef = useRef<number | null>(null);
   const scrollSpeed = 0.5; // pixels per frame
 
-  // Duplicate involvements for seamless infinite scroll
-  const duplicatedInvolvements = [...involvements, ...involvements];
+  // Duplicate affiliations for seamless infinite scroll
+  const duplicatedaffiliations = [...affiliations, ...affiliations];
 
   // Sync ref with state
   useEffect(() => {
@@ -216,56 +217,48 @@ export const HomePage: React.FC = () => {
       <section
         id="hero"
         style={{
-          minHeight: "50vh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           textAlign: "center",
-          marginBottom: "var(--gf-space-xl)"
+          marginBottom: "20vh"
         }}
       >
         <h1
           style={{
             fontSize: "3.5rem",
             fontWeight: 700,
-            marginBottom: "var(--gf-space-md)",
+            marginBottom: 0,
             color: "var(--gf-color-text)",
-            lineHeight: 1.2
+            lineHeight: 1.1,
+            maxWidth: "900px"
           }}
         >
           Eddie Knight
         </h1>
         <p
           style={{
-            fontSize: "1.25rem",
+            fontSize: "2rem",
             color: "var(--gf-color-text-subtle)",
+            marginTop: "0.5rem",
             marginBottom: "var(--gf-space-lg)",
-            maxWidth: "600px"
+            maxWidth: "800px",
+            lineHeight: 1.6
           }}
         >
-          Author, Speaker, Engineer
+          Strategic Advisory
         </p>
       </section>
 
-      {/* Involvements Section */}
+      {/* affiliations Section */}
       <section
-        id="involvements"
+        id="affiliations"
         style={{
-          marginBottom: "var(--gf-space-xl)"
+          marginBottom: "var(--gf-space-xl)",
+          marginTop: "var(--gf-space-xl)"
         }}
       >
-        <h2
-          style={{
-            fontSize: "2.5rem",
-            fontWeight: 600,
-            marginBottom: "var(--gf-space-xl)",
-            color: "var(--gf-color-accent)",
-            textAlign: "center"
-          }}
-        >
-          Involvements
-        </h2>
         <div
           ref={scrollContainerRef}
           onMouseDown={handleUserInteraction}
@@ -292,14 +285,14 @@ export const HomePage: React.FC = () => {
               width: "max-content"
             }}
           >
-            {duplicatedInvolvements.map((involvement, index) => (
+            {duplicatedaffiliations.map((involvement, index) => (
               <a
                 key={index}
                 href={involvement.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  padding: "var(--gf-space-lg)",
+                  padding: "var(--gf-space-md)",
                   backgroundColor: "var(--gf-color-surface)",
                   borderRadius: "var(--gf-radius-xl)",
                   boxShadow: "var(--gf-shadow-surface)",
@@ -311,8 +304,7 @@ export const HomePage: React.FC = () => {
                   flexDirection: "column",
                   textDecoration: "none",
                   color: "inherit",
-                  width: "380px",
-                  minWidth: "380px",
+                  width: "325px",
                   flexShrink: 0
                 }}
                 onMouseEnter={(e) => {
@@ -384,73 +376,77 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* About Section */}
+
+      {/* Problem Section */}
       <section
-        id="about"
+        id="problem"
         style={{
           marginBottom: "var(--gf-space-xl)",
-          padding: "var(--gf-space-lg)",
-          backgroundColor: "var(--gf-color-surface)",
-          borderRadius: "var(--gf-radius-xl)",
-          boxShadow: "var(--gf-shadow-surface)",
-          backdropFilter: "var(--gf-glass-blur)",
-          WebkitBackdropFilter: "var(--gf-glass-blur)"
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "2rem",
-            fontWeight: 600,
-            marginBottom: "var(--gf-space-md)",
-            color: "var(--gf-color-accent)"
-          }}
-        >
-          About
-        </h2>
-        <p
-          style={{
-            color: "var(--gf-color-text)",
-            lineHeight: 1.6,
-            fontSize: "1.1rem"
-          }}
-        >
-          Deep in the Heart of Texas
-        </p>
-      </section>
-
-      {/* Contact Section */}
-      <section
-        id="contact"
-        style={{
-          padding: "var(--gf-space-lg)",
+          padding: "var(--gf-space-xl)",
           backgroundColor: "var(--gf-color-surface)",
           borderRadius: "var(--gf-radius-xl)",
           boxShadow: "var(--gf-shadow-surface)",
           backdropFilter: "var(--gf-glass-blur)",
           WebkitBackdropFilter: "var(--gf-glass-blur)",
-          textAlign: "center"
+          border: "1px solid var(--gf-color-border-strong)"
         }}
       >
         <h2
           style={{
-            fontSize: "2rem",
+            fontSize: "2.5rem",
             fontWeight: 600,
             marginBottom: "var(--gf-space-md)",
             color: "var(--gf-color-accent)"
           }}
         >
-          Get In Touch
+          Is your GRC a bottleneck or a bridge?
         </h2>
         <p
           style={{
-            color: "var(--gf-color-text-subtle)",
-            marginBottom: "var(--gf-space-lg)",
-            fontSize: "1.1rem"
+            color: "var(--gf-color-text)",
+            lineHeight: 1.8,
+            fontSize: "1.25rem"
           }}
         >
-          Feel free to reach out if you'd like to collaborate or just say hello!
+          Most organizations treat compliance as a tax on engineering. I treat it as an engineering discipline. If your Open Source strategy is fragmented, your cloud controls are opaque, or your security posture is slowing your release cycles—we should talk.
         </p>
       </section>
+
+      {/* CTA Section */}
+      <section
+        id="cta"
+        style={{
+          marginBottom: "var(--gf-space-xl)",
+          textAlign: "center"
+        }}
+      >
+        <Link
+          to="/apply"
+          style={{
+            display: "inline-block",
+            padding: "var(--gf-space-lg) var(--gf-space-xl)",
+            backgroundColor: "var(--gf-color-accent)",
+            color: "var(--gf-color-button-text)",
+            borderRadius: "var(--gf-radius-lg)",
+            fontSize: "1.25rem",
+            fontWeight: 600,
+            textDecoration: "none",
+            transition: "transform 0.2s, box-shadow 0.2s",
+            boxShadow: "var(--gf-shadow-surface)"
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = "translateY(-2px)";
+            e.currentTarget.style.boxShadow = "var(--gf-shadow-surface-strong)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = "translateY(0)";
+            e.currentTarget.style.boxShadow = "var(--gf-shadow-surface)";
+          }}
+        >
+          Apply for a Strategic Intensive
+        </Link>
+      </section>
+
     </div>
   );
 };
