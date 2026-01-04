@@ -161,6 +161,11 @@ export const BadgesSection: React.FC = () => {
         marginTop: "var(--gf-space-xl)"
       }}
     >
+      <style>{`
+        #badges div::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
       <div
         ref={scrollContainerRef}
         onMouseDown={handleUserInteraction}
@@ -171,6 +176,8 @@ export const BadgesSection: React.FC = () => {
           overflowY: "hidden",
           scrollBehavior: "auto",
           WebkitOverflowScrolling: "touch",
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
           paddingBottom: "var(--gf-space-lg)",
           paddingTop: "var(--gf-space-lg)",
           width: "100vw",
