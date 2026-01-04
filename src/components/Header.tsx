@@ -103,18 +103,29 @@ export const Header: React.FC = () => {
           >
             Bio
           </Link>
-          <div
+          <Link
+            to="/apply"
             style={{
               color: "var(--gf-color-text)",
+              textDecoration: "none",
               padding: "0.5rem 1rem",
               borderRadius: "var(--gf-radius-lg)",
-              opacity: 0.6,
-              cursor: "not-allowed",
-              pointerEvents: "none"
+              transition: "background-color 0.2s",
+              backgroundColor: location.pathname === "/apply" ? "var(--gf-color-accent-soft)" : "transparent"
+            }}
+            onMouseEnter={(e) => {
+              if (location.pathname !== "/apply") {
+                e.currentTarget.style.backgroundColor = "var(--gf-color-accent-soft)";
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (location.pathname !== "/apply") {
+                e.currentTarget.style.backgroundColor = "transparent";
+              }
             }}
           >
             Apply
-          </div>
+          </Link>
         </nav>
       </section>
     </header>
