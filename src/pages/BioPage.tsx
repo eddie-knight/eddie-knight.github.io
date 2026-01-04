@@ -1,6 +1,7 @@
 import React from "react";
 import { TextSection } from "../components/TextSection";
 import { AffiliationsSection } from "../components/AffiliationsSection";
+import { BadgesSection } from "../components/BadgesSection";
 
 export const BioPage: React.FC = () => {
   return (
@@ -12,6 +13,8 @@ export const BioPage: React.FC = () => {
         width: "100%"
       }}
     >
+      <BadgesSection />
+
       {/* Opening Narrative Section */}
       <TextSection
         paragraphs={[
@@ -20,9 +23,7 @@ export const BioPage: React.FC = () => {
         textShadow={true}
         maxWidth="1000px"
       />
-
-      <AffiliationsSection />
-
+      
       {/* Key Work Section */}
       <TextSection
         title="Standards & Tools"
@@ -52,6 +53,8 @@ export const BioPage: React.FC = () => {
         textShadow={true}
         maxWidth="1000px"
       />
+
+      <AffiliationsSection />
 
       {/* Philosophy & Future Section */}
       <TextSection
