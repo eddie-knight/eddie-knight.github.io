@@ -17,6 +17,7 @@ export const BioPage: React.FC = () => {
 
       {/* Opening Narrative Section */}
       <TextSection
+        title="Approach"
         paragraphs={[
           "My work is centered on creating a unified governance stack that enables continuous compliance monitoring and \"compliance-as-code,\" ensuring that demand for software velocity is balanced with the requirements of regulatory resilience. By holding leadership positions such as Chair of the Technical Oversight Committee for FINOS and Technical Lead for the CNCF TAG Security & Compliance, I maintain real-time visibility into the latest trends and critical pain points facing both the open-source ecosystem and its largest global consumers."
         ]}
@@ -28,7 +29,7 @@ export const BioPage: React.FC = () => {
       <TextSection
         title="Standards & Tools"
         paragraphs={[
-          <>A cornerstone of my recent work is the <strong>Open Source Project Security (OSPS) Baseline</strong>, which I authored to establish a tiered maturity model for software supply chain security. This baseline has been adopted as the security standard for the Linux Foundation and the primary leading citation for the German government's BSI-TR-03185-2. To move standards such as these from policy to practice, I developed <strong>Privateer</strong>, a validation engine and test harness. This tool is now utilized to evaluate Linux Foundation projects, providing automated, machine-readable verification of compliance with established control objectives.</>
+          <>A cornerstone of my recent work is the <strong>Open Source Project Security (OSPS) Baseline</strong>, which I authored alongside several other industry leaders to establish a tiered maturity model for software supply chain security. This baseline has been adopted as the security standard for the Linux Foundation and the primary leading citation for the German government's BSI-TR-03185-2. To move standards such as these from policy to practice, I developed <strong>Privateer</strong>, a validation engine and test harness. This tool is now utilized to evaluate Linux Foundation projects, providing automated, machine-readable verification of compliance with established control objectives.</>
         ]}
         textShadow={true}
         maxWidth="1000px"
