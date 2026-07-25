@@ -1,4 +1,4 @@
-/* Global layout and reset for the personal website wireframe */
+/* Global layout, type scale and component styles for the personal website */
 
 *,
 *::before,
@@ -20,65 +20,109 @@ body {
   background: var(--gf-color-background, #050816);
 }
 
-/* Cyan Flow theme enhancements */
-.cyan-theme aside,
-.cyan-theme [class*="card"] {
-  backdrop-filter: var(--gf-glass-blur, none);
-  -webkit-backdrop-filter: var(--gf-glass-blur, none);
+/* ---------------------------------------------------------------------------
+   Scale tokens
+
+   Type steps are fluid so the hero and section headings never need per-page
+   media queries. Section rhythm is a single token so every gap between major
+   blocks matches.
+   ------------------------------------------------------------------------ */
+:root {
+  --gf-text-h1: clamp(2.25rem, 6.5vw, 3.5rem);
+  --gf-text-h2: clamp(1.5rem, 3.2vw, 2rem);
+  --gf-text-h3: clamp(1.15rem, 1.8vw, 1.35rem);
+  --gf-text-lede: clamp(1.15rem, 2.2vw, 1.6rem);
+  --gf-text-body: clamp(1.02rem, 1.3vw, 1.2rem);
+  --gf-text-eyebrow: 0.75rem;
+
+  /* Shared prose measure. Left-aligned headings share this column so their
+     left edges line up with body copy instead of the wider card grids. */
+  --gf-measure: 1000px;
+
+  --gf-space-sm: 0.75rem;
+  --gf-space-section: clamp(3rem, 8vw, 6rem);
+  --gf-rail-fade: clamp(1.5rem, 6vw, 5rem);
 }
 
-/* Darker text for buttons with accent background in cyan theme */
-.cyan-theme button[style*="var(--gf-color-accent)"] {
-  color: var(--gf-color-button-text, #000000) !important;
+/* ---------------------------------------------------------------------------
+   Typography
+   ------------------------------------------------------------------------ */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
 }
 
-/* Neon glow effects for cyan theme */
-.cyan-theme button:hover,
-.cyan-theme select:hover {
-  box-shadow: 0 0 20px var(--gf-cyan-glow, transparent);
-  border-color: var(--gf-color-accent, #00f2ff);
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+h1 {
+  font-size: var(--gf-text-h1);
+  font-weight: 700;
+  line-height: 1.1;
 }
 
-/* Hide scrollbar for infinite scroll hero row */
-#affiliations > div {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-}
-
-#affiliations > div::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
-}
-
-/* Responsive padding for header on large screens */
-@media (min-width: 1024px) {
-  .site-header {
-    padding-top: calc(var(--gf-space-xl) * 2) !important;
-  }
-}
-
-/* Base typography styles */
 h2 {
-  font-size: 1.75rem;
+  font-size: var(--gf-text-h2);
   font-weight: 600;
+  line-height: 1.2;
   color: var(--gf-color-accent);
   margin-bottom: var(--gf-space-md);
 }
 
 h3 {
-  font-size: 1.75rem;
+  font-size: var(--gf-text-h3);
   font-weight: 600;
+  line-height: 1.3;
   color: var(--gf-color-accent);
-  margin-bottom: var(--gf-space-md);
+  margin-bottom: var(--gf-space-sm);
 }
 
-/* Responsive margins for main content */
+.inline-link {
+  color: var(--gf-color-accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gf-color-border-strong);
+  transition: border-color 0.2s;
+}
+
+.inline-link:hover {
+  border-bottom-color: var(--gf-color-accent);
+}
+
+/* ---------------------------------------------------------------------------
+   Focus visibility
+
+   Nothing in the app defined a focus ring, so keyboard users had no indicator
+   on links, buttons or the scrollable rails.
+   ------------------------------------------------------------------------ */
+:focus-visible {
+  outline: 2px solid var(--gf-color-accent);
+  outline-offset: 3px;
+  border-radius: var(--gf-radius-lg);
+}
+
+/* ---------------------------------------------------------------------------
+   Page shell
+   ------------------------------------------------------------------------ */
+.app-shell {
+  /* The full-bleed rails use 100vw, which is wider than the content box once a
+     scrollbar is present. Clip (not hidden) contains it without creating a
+     scroll container. */
+  overflow-x: clip;
+}
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page-section {
+  margin-top: var(--gf-space-section);
+}
+
 .main-content {
   margin-left: 0;
   margin-right: 0;
 }
 
-/* Tablet and up - add side margins */
 @media (min-width: 768px) {
   .main-content {
     margin-left: var(--gf-space-lg);
@@ -86,7 +130,6 @@ h3 {
   }
 }
 
-/* Desktop - increase side margins */
 @media (min-width: 1024px) {
   .main-content {
     margin-left: var(--gf-space-xl);
@@ -94,7 +137,6 @@ h3 {
   }
 }
 
-/* Large desktop - even larger margins */
 @media (min-width: 1440px) {
   .main-content {
     margin-left: calc(var(--gf-space-xl) * 2);
@@ -102,24 +144,471 @@ h3 {
   }
 }
 
-/* Responsive typography for mobile */
-@media (max-width: 768px) {
-  /* Reduce h2 font size on mobile */
-  .main-content h2 {
-    font-size: 1.6rem;
+/* ---------------------------------------------------------------------------
+   Header and hero
+   ------------------------------------------------------------------------ */
+/* No bottom padding: whatever follows the header owns the gap, so the header
+   and the roles rail below it don't stack two spacers on top of each other. */
+.site-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--gf-space-lg) var(--gf-space-md) 0;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .site-header {
+    padding: var(--gf-space-xl) var(--gf-space-xl) 0;
   }
-  
-  /* Reduce h3 font size on mobile */
-  .main-content h3 {
-    font-size: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .site-header {
+    padding-top: calc(var(--gf-space-xl) * 2);
   }
-  
-  /* Reduce paragraph and list item font size on mobile */
-  .text-section p,
-  .text-section li,
-  #oss-cta p,
-  #grc-cta p,
-  #three-pillars p {
-    font-size: 1rem !important;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-name {
+  /* Sized here rather than inheriting the h1 step: the hero carries one large
+     element and this is it, so it runs bigger than a section title. */
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  margin: 0;
+  color: var(--gf-color-text);
+  max-width: 900px;
+  letter-spacing: -0.02em;
+}
+
+/* The tagline sits in the same register as the section eyebrows — mono,
+   uppercase, widely tracked — instead of near the name's size. Contrast in
+   family and weight is what separates the two lines; matching them in size
+   only made them compete. */
+.hero-tagline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--gf-font-mono);
+  /* Tracking is tighter here than the 0.18em used at wider widths so the
+     longer half still fits one line on a 320px screen. */
+  font-size: clamp(0.66rem, 1.1vw, 0.82rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gf-color-text-subtle);
+  margin: var(--gf-space-md) 0 0;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.hero-tagline-sep {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .hero-tagline {
+    flex-direction: row;
+    gap: 0 0.7em;
+    letter-spacing: 0.18em;
+  }
+
+  /* Only once the halves share a line does breaking inside one of them strand
+     the separator, so nowrap is scoped to that case. */
+  .hero-tagline-part {
+    white-space: nowrap;
+  }
+
+  .hero-tagline-sep {
+    display: inline;
+  }
+}
+
+.hero-tagline-link {
+  color: var(--gf-color-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gf-color-accent);
+  transition: color 0.2s;
+}
+
+.hero-tagline-link:hover {
+  color: var(--gf-color-accent);
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gf-space-sm);
+  margin-top: var(--gf-space-md);
+}
+
+.nav-link {
+  color: var(--gf-color-text);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--gf-radius-lg);
+  transition: background-color 0.2s;
+}
+
+.nav-link:hover {
+  background-color: var(--gf-color-accent-soft);
+}
+
+.nav-link.active {
+  background-color: var(--gf-color-accent-soft);
+  color: var(--gf-color-accent);
+}
+
+/* ---------------------------------------------------------------------------
+   Section headings
+   ------------------------------------------------------------------------ */
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--gf-font-mono);
+  font-size: var(--gf-text-eyebrow);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gf-color-text-subtle);
+  margin: 0 0 var(--gf-space-sm);
+}
+
+.section-heading.centered {
+  text-align: center;
+}
+
+.section-heading.centered .section-eyebrow {
+  justify-content: center;
+}
+
+.section-eyebrow-rule {
+  display: block;
+  width: 1.75rem;
+  height: 1px;
+  background: var(--gf-color-accent);
+  flex-shrink: 0;
+}
+
+.section-subtitle {
+  font-size: clamp(1.05rem, 1.8vw, 1.5rem);
+  color: var(--gf-color-text-subtle);
+  margin: 0 0 var(--gf-space-lg);
+}
+
+.text-section {
+  margin-bottom: var(--gf-space-xl);
+}
+
+.priority-list {
+  padding-left: 1.5em;
+  margin: 0 0 var(--gf-space-md);
+}
+
+.priority-list li {
+  color: var(--gf-color-text);
+  line-height: 1.8;
+  font-size: var(--gf-text-body);
+  margin-bottom: var(--gf-space-md);
+}
+
+/* ---------------------------------------------------------------------------
+   Card grids
+   ------------------------------------------------------------------------ */
+.card-grid {
+  display: grid;
+  /* min() keeps the track from overflowing viewports narrower than the floor. */
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: var(--gf-space-lg);
+}
+
+.card-grid-wide {
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+  align-items: stretch;
+}
+
+.pillar-card {
+  padding: var(--gf-space-xl);
+  background-color: var(--gf-color-surface);
+  border-radius: var(--gf-radius-xl);
+  box-shadow: var(--gf-shadow-surface);
+  backdrop-filter: var(--gf-glass-blur);
+  -webkit-backdrop-filter: var(--gf-glass-blur);
+  border: 1px solid var(--gf-color-border-strong);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pillar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--gf-shadow-surface-strong);
+}
+
+.pillar-card-body {
+  color: var(--gf-color-text);
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   CTA cards
+   ------------------------------------------------------------------------ */
+.cta-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--gf-space-xl);
+  background-color: var(--gf-color-surface);
+  border-radius: var(--gf-radius-xl);
+  box-shadow: var(--gf-shadow-surface);
+  backdrop-filter: var(--gf-glass-blur);
+  -webkit-backdrop-filter: var(--gf-glass-blur);
+  border: 1px solid var(--gf-color-border-strong);
+}
+
+.cta-card-compact {
+  padding: var(--gf-space-lg) var(--gf-space-xl);
+  text-align: center;
+}
+
+.cta-card-body {
+  color: var(--gf-color-text);
+  line-height: 1.8;
+  font-size: var(--gf-text-body);
+  margin: 0 0 var(--gf-space-lg);
+}
+
+.cta-card-action {
+  margin-top: auto;
+  text-align: center;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gf-space-md);
+  justify-content: center;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.9rem 1.75rem;
+  background-color: var(--gf-color-accent);
+  color: var(--gf-color-button-text);
+  border-radius: var(--gf-radius-lg);
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: var(--gf-shadow-surface);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--gf-shadow-surface-strong);
+}
+
+.cta-button-secondary {
+  background-color: transparent;
+  color: var(--gf-color-accent);
+  border: 1px solid var(--gf-color-border-strong);
+}
+
+.cta-button-secondary:hover {
+  border-color: var(--gf-color-accent);
+}
+
+.cta-button-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Full-bleed scrolling rails
+   ------------------------------------------------------------------------ */
+.rail-section {
+  margin-block: var(--gf-space-xl);
+}
+
+/* When the rail opens a page it sits right under the nav, which already has
+   the main element's top padding above it. */
+.page > .rail-section:first-child {
+  margin-top: 0;
+}
+
+.rail {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding: var(--gf-space-lg) var(--gf-space-xl);
+}
+
+.rail::-webkit-scrollbar {
+  display: none;
+}
+
+/* Softens the cut at both ends so the rail reads as continuous rather than
+   clipped by the viewport. */
+.edge-fade {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--gf-rail-fade),
+    #000 calc(100% - var(--gf-rail-fade)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--gf-rail-fade),
+    #000 calc(100% - var(--gf-rail-fade)),
+    transparent 100%
+  );
+}
+
+.rail-track {
+  display: flex;
+  flex-direction: row;
+  gap: var(--gf-space-lg);
+  width: max-content;
+}
+
+.rail-track-centered {
+  align-items: center;
+}
+
+.involvement-card {
+  padding: var(--gf-space-md);
+  background-color: var(--gf-color-surface);
+  border-radius: var(--gf-radius-xl);
+  box-shadow: var(--gf-shadow-surface);
+  backdrop-filter: var(--gf-glass-blur);
+  -webkit-backdrop-filter: var(--gf-glass-blur);
+  border: 1px solid var(--gf-color-border-strong);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  flex-shrink: 0;
+  width: 15rem;
+}
+
+.involvement-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--gf-shadow-surface-strong);
+}
+
+.involvement-card-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--gf-color-text);
+  line-height: 1.3;
+  margin: var(--gf-space-sm) 0 0.25rem;
+}
+
+.involvement-card-role {
+  font-size: 0.75rem;
+  font-family: var(--gf-font-mono);
+  color: var(--gf-color-text-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: auto;
+  padding-top: var(--gf-space-sm);
+}
+
+.logo-frame {
+  min-width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-image {
+  max-height: 80px;
+  /* Bounded by the card, not by a fixed pixel width that could overflow it. */
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.logo-fallback {
+  width: 60px;
+  height: 60px;
+  background: var(--gf-color-accent-soft);
+  border-radius: var(--gf-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gf-color-accent);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.badge-image {
+  max-height: 150px;
+  max-width: 240px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* ---------------------------------------------------------------------------
+   Cyan theme accents
+   ------------------------------------------------------------------------ */
+.cyan-theme aside {
+  backdrop-filter: var(--gf-glass-blur, none);
+  -webkit-backdrop-filter: var(--gf-glass-blur, none);
+}
+
+.cyan-theme button:hover,
+.cyan-theme select:hover {
+  box-shadow: 0 0 20px var(--gf-cyan-glow, transparent);
+  border-color: var(--gf-color-accent, #00f2ff);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* ---------------------------------------------------------------------------
+   Motion preferences
+   ------------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* The rails stop auto-scrolling in JS; restore their scrollbars so the
+     content is still reachable, and drop the edge fade that would otherwise
+     leave the resting first and last cards permanently dimmed. */
+  .rail {
+    scrollbar-width: thin;
+    -ms-overflow-style: auto;
+  }
+
+  .rail::-webkit-scrollbar {
+    display: block;
+    height: 8px;
+  }
+
+  .edge-fade {
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 }

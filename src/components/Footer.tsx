@@ -31,6 +31,24 @@ export const Footer: React.FC = () => {
           }}
         >
           <a
+            href="https://revanite.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "var(--gf-color-text-subtle)",
+              textDecoration: "none",
+              transition: "color 0.2s"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = "var(--gf-color-accent)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = "var(--gf-color-text-subtle)";
+            }}
+          >
+            Revanite
+          </a>
+          <a
             href="https://github.com/eddie-knight"
             target="_blank"
             rel="noopener noreferrer"

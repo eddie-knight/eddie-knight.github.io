@@ -23,14 +23,15 @@ export const ApplicationPage: React.FC = () => {
 
   // Function to move misplaced HubSpot forms to the correct container
   const moveFormToContainer = () => {
-    if (!formContainerRef.current) return;
+    const container = formContainerRef.current;
+    if (!container) return;
 
     // Look for HubSpot forms that might have been rendered outside the container
     const allForms = document.querySelectorAll('.hs-form, [class*="hs-form"]');
     allForms.forEach((form) => {
       const formElement = form as HTMLElement;
       // Check if form is not already in our container
-      if (!formContainerRef.current?.contains(formElement)) {
+      if (!container.contains(formElement)) {
         // Check if it's a HubSpot form (has hs-form classes or is near body)
         const isHubSpotForm = formElement.classList.contains('hs-form') || 
                             formElement.querySelector('.hs-form') !== null ||
@@ -39,7 +40,7 @@ export const ApplicationPage: React.FC = () => {
         
         if (isHubSpotForm) {
           // Move the form to our container
-          formContainerRef.current.appendChild(formElement);
+          container.appendChild(formElement);
         }
       }
     });
@@ -157,14 +158,7 @@ export const ApplicationPage: React.FC = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        maxWidth: "900px",
-        margin: "0 auto",
-        padding: "var(--gf-space-xl)",
-        width: "100%"
-      }}
-    >
+    <div style={{ maxWidth: "900px", margin: "0 auto", width: "100%" }}>
       {/* Header Section */}
       <section
         id="header"
@@ -173,24 +167,17 @@ export const ApplicationPage: React.FC = () => {
           textAlign: "center"
         }}
       >
-        <h1
-          style={{
-            fontSize: "2.5rem",
-            fontWeight: 700,
-            marginBottom: "var(--gf-space-md)",
-            color: "var(--gf-color-accent)",
-            lineHeight: 1.2
-          }}
-        >
+        {/* An h2: the hero in the site header already provides the page h1. */}
+        <h2 style={{ marginBottom: "var(--gf-space-md)" }}>
           Strategic Advisory Services
-        </h1>
+        </h2>
         <p
           style={{
             color: "var(--gf-color-text-subtle)",
-            fontSize: "1.25rem",
+            fontSize: "var(--gf-text-body)",
             lineHeight: 1.7,
             maxWidth: "800px",
-            margin: "10 auto"
+            margin: "0 auto"
           }}
         >
           I maintain a selective engagement model, accepting only one to two advisory engagements at a time to ensure dedicated focus and maximum strategic impact.

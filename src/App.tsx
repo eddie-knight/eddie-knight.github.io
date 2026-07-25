@@ -14,7 +14,7 @@ export const App: React.FC = () => {
   return (
     <BrowserRouter>
       <div
-        className="cyan-theme"
+        className="cyan-theme app-shell"
         style={{
           minHeight: "100vh",
           display: "flex",

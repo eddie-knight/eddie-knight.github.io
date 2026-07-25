@@ -6,13 +6,16 @@ interface InvolvementCardProps {
   organization: string;
   url: string;
   logo?: string;
+  /** Repeated copy in a looping rail: hidden from assistive tech and tab order. */
+  decorative?: boolean;
 }
 
 export const InvolvementCard: React.FC<InvolvementCardProps> = ({
   title,
   organization,
   url,
-  logo
+  logo,
+  decorative = false
 }) => {
   const parts = title.split(", ");
   const projectName = parts[0];
@@ -20,63 +23,16 @@ export const InvolvementCard: React.FC<InvolvementCardProps> = ({
 
   return (
     <a
+      className="involvement-card"
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      style={{
-        padding: "var(--gf-space-md)",
-        backgroundColor: "var(--gf-color-surface)",
-        borderRadius: "var(--gf-radius-xl)",
-        boxShadow: "var(--gf-shadow-surface)",
-        backdropFilter: "var(--gf-glass-blur)",
-        WebkitBackdropFilter: "var(--gf-glass-blur)",
-        border: "1px solid var(--gf-color-border-strong)",
-        transition: "transform 0.2s, box-shadow 0.2s",
-        display: "flex",
-        flexDirection: "column",
-        textDecoration: "none",
-        color: "inherit",
-        flexShrink: 0
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "translateY(-4px)";
-        e.currentTarget.style.boxShadow = "var(--gf-shadow-surface-strong)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = "translateY(0)";
-        e.currentTarget.style.boxShadow = "var(--gf-shadow-surface)";
-      }}
+      aria-hidden={decorative || undefined}
+      tabIndex={decorative ? -1 : undefined}
     >
-      {/* Logo */}
       <LogoComponent logo={logo} organization={organization} />
-
-      {/* Project Name (mid-sized text) */}
-      <h3
-        style={{
-          fontSize: "1.25rem",
-          fontWeight: 600,
-          marginBottom: role ? "0.25rem" : "var(--gf-space-md)",
-          color: "var(--gf-color-text)",
-          lineHeight: 1.3
-        }}
-      >
-        {projectName}
-      </h3>
-      {/* Role (small text) */}
-      {role && (
-        <div
-          style={{
-            fontSize: "0.75rem",
-            color: "var(--gf-color-text-subtle)",
-            marginBottom: "var(--gf-space-md)",
-            textTransform: "uppercase",
-            letterSpacing: "0.05em"
-          }}
-        >
-          {role}
-        </div>
-      )}
+      <h3 className="involvement-card-title">{projectName}</h3>
+      {role && <div className="involvement-card-role">{role}</div>}
     </a>
   );
 };
-

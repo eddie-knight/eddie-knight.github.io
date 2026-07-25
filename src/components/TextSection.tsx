@@ -1,6 +1,8 @@
 import React from "react";
+import { SectionHeading } from "./SectionHeading";
 
 interface TextSectionProps {
+  eyebrow?: string;
   title?: string;
   subtitle?: string;
   paragraphs: (string | React.ReactNode)[];
@@ -8,25 +10,25 @@ interface TextSectionProps {
   textShadow?: boolean;
   maxWidth?: string;
   lastParagraphMargin?: string;
+  /** Larger opening type, for the leading paragraph of a page. */
+  lede?: boolean;
 }
 
 export const TextSection: React.FC<TextSectionProps> = ({
+  eyebrow,
   title,
   subtitle,
   paragraphs,
   centered = false,
   textShadow = false,
   maxWidth,
-  lastParagraphMargin = "0"
+  lastParagraphMargin = "0",
+  lede = false
 }) => {
-  const sectionStyle: React.CSSProperties = {
-    marginBottom: "var(--gf-space-xl)"
-  };
-
   const paragraphStyle: React.CSSProperties = {
     color: "var(--gf-color-text)",
-    lineHeight: 1.8,
-    fontSize: "1.25rem",
+    lineHeight: lede ? 1.6 : 1.8,
+    fontSize: lede ? "var(--gf-text-lede)" : "var(--gf-text-body)",
     marginBottom: "var(--gf-space-md)",
     ...(centered && { textAlign: "center" }),
     ...(textShadow && { textShadow: "0 2px 4px rgba(0, 0, 0, 0.5)" }),
@@ -37,32 +39,25 @@ export const TextSection: React.FC<TextSectionProps> = ({
     })
   };
 
-  const subtitleStyle: React.CSSProperties = {
-    fontSize: "1.5rem",
-    color: "var(--gf-color-text-subtle)",
-    marginBottom: "var(--gf-space-lg)",
-    ...(centered && { textAlign: "center" })
-  };
-
   return (
-    <section className="text-section" style={sectionStyle}>
+    <section className="text-section">
       {title && (
-        <h2
-          style={{
-            marginBottom: centered ? "0.5rem" : "var(--gf-space-md)",
-            ...(centered && { textAlign: "center" })
-          }}
-        >
-          {title}
-        </h2>
+        <SectionHeading
+          eyebrow={eyebrow}
+          title={title}
+          subtitle={subtitle}
+          centered={centered}
+          maxWidth={maxWidth}
+        />
       )}
-      {subtitle && <p style={subtitleStyle}>{subtitle}</p>}
       {paragraphs.map((paragraph, index) => (
         <p
           key={index}
           style={{
             ...paragraphStyle,
-            ...(index === paragraphs.length - 1 && { marginBottom: lastParagraphMargin })
+            ...(index === paragraphs.length - 1 && {
+              marginBottom: lastParagraphMargin
+            })
           }}
         >
           {paragraph}
@@ -71,4 +66,3 @@ export const TextSection: React.FC<TextSectionProps> = ({
     </section>
   );
 };
-
